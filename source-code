@@ -1,0 +1,192 @@
+
+system "clear"
+
+puts "============ This is a personal financial calculation program ============"
+puts ".."
+puts "..."
+puts "...."
+puts "....."
+puts "......"
+puts "......."
+puts "........."
+puts "..........."
+puts "............"
+puts "............."
+puts "................"
+puts "..................."
+puts ".,,,,,,,,,,,,,,,,,,..."
+puts ".,,,,,,,,,,,,,,,,,,..."
+puts ".,,,,,,,,,,,,,,,,,,......"
+puts ".,,,,,,,,,,,,,,,,,,,,,,,,,,"
+puts "...........,,,,,,,,,,,,,,,,,,,,coded by"
+puts ".........,,,,,,,,,,,,,,,,,,,,,,,Re$+ar0ne"
+
+print " Version 0.01 2017/DEC/19 "
+print "Version 0.03 STABLE 2017/DEC/31 "
+puts ""
+print "time/date: "
+puts Time.now
+
+
+#so far; user, tvom. to do++ perpetuities, sinking fund, declining balance method. algorithem - changing interest rates. 
+class Tvom 
+	attr_accessor :interest_pure, :after_nperiods, :constantplus1, :frequency_c, :acc, :s_tvom, :pvacc
+end 
+
+
+class Bottomline
+	attr_accessor :total_i, :total_e, :ratio_ic, :nprofit 
+end 
+
+
+
+#integrate orphaned variables into the bottomline_s class 
+class Bottomline_s  
+	attr_accessor :fix_income, :fix_expenditure, :total_investmenti, :totalb_expenditure, :month_range, :iprofi, :s_spend
+end
+
+
+class Perpetuity 
+	attr_accessor :interest_pure, :acc, :frequency_c
+end 
+
+puts "what is your name? "
+	person_name = gets.to_s
+
+
+puts "how much liquid capital do you have to date?"
+	pv = gets.to_i 
+	10.times { puts " you need to increase your savings! " } if pv < 1000
+	puts "you have enough savings" if pv == 1000
+	10.times {puts "you are rich, hire an accountant"} if pv > 100000
+	
+puts "enter Y if you agree with the terms and conditions"
+agreement = gets.to_s 
+
+	system "clear"
+print "hello " 
+print  person_name.to_s 
+
+
+
+puts "how many months of data is being analyzed? Range max 12 months" 
+	month_range = gets.to_i 
+puts "what is the interest rate earned on your cash savings?"
+	i_cashsavings = gets.to_f
+
+
+puts "what is estimated/calculated interest rate earned on your investments?"
+	i_investments = gets.to_f
+
+
+
+puts "please enter total fixed income" 
+	fix_income = gets.to_f
+puts "please enter total fixed expenditure"
+	fix_expenditure = gets.to_f
+puts "you need to spend less than you earn" if fix_income < fix_expenditure 
+puts "please enter total investment income"
+	total_investmenti = gets.to_f
+puts "please enter total business expenditure"
+	totalb_expenditure = gets.to_f
+
+puts " "
+print "you earned an equivalent interest rate of "
+ i_profi = (total_investmenti - totalb_expenditure) / (totalb_expenditure) * month_range.to_f
+
+
+
+print  i_profi.to_s  + "%" + " on your investments "
+puts " "
+
+
+print "your earning to spending ratio is "
+s_spend = (fix_income / fix_expenditure) * 100.to_f
+puts s_spend.to_s + "%"
+
+
+puts " "
+
+
+print "your TOTAL INCOME, the sum of fixed income and total investment income is; "
+total_i = (fix_income + total_investmenti)
+puts "$" + total_i.to_s 
+puts " "
+
+print "your TOTAL EXPENSES, the sum of fixed and business expenditures; "
+total_e = (fix_expenditure + totalb_expenditure)
+
+ puts "$" + total_e.to_s
+ puts " "
+print "your RATIO of investment income to the cost of doing business is; "
+puts (total_investmenti / totalb_expenditure)
+
+
+puts " "
+nprofit = total_i - total_e 
+print "your total profit is; " 
+puts nprofit 
+
+
+
+
+puts "program will now load the TVOM algorithem "
+print "enter Y to accept "
+agreement1 = gets.to_s
+puts " "
+
+system "clear"
+
+puts "enter the interest rate that you will be recieving on your investment"
+interest_pure = gets.to_f 
+puts "for how many years will interest be compounded?"
+after_nperiods = gets.to_i 
+puts "enter the how frequently interest will be compounded per year, ex J4= 4, j12= 12"
+frequency_c = gets.to_i 
+#puts "that is not a valid selection" unless frequency_c >= [1, 2, 4, 54, 12]
+
+time_factor = after_nperiods * frequency_c
+ x = 1
+ tvom = ( (1 + ( interest_pure / 100) / frequency_c ) ) ** time_factor - x 
+puts "this is the common factor for the time value of money"
+ puts tvom 
+
+puts "enter size of the periodic payment"
+ periodic_payment = gets.to_f
+
+
+s_tvom = ( tvom ) / ( ( interest_pure / 100 ) / ( frequency_c ) )
+puts s_tvom 
+
+acc = s_tvom * periodic_payment
+#end
+puts acc
+pvacc = (nprofit + pv) *  (1 + ( interest_pure / 100) / frequency_c )
+print "your current cash savings and profit will grow to $"
+puts pvacc.to_s + " at the end of the compounding period "
+puts " "
+
+print "your TOTAL liquidity at the end of the compouding period $"
+puts pvacc + acc
+
+
+
+perpetuity = ( acc ) *  ( interest_pure / 100)
+print "you can have a perpetuity of $"
+puts perpetuity.to_s + " " + frequency_c.to_s + " times a year " + "if" + " " + interest_pure.to_s + " " + "percent interest is sustained" 
+#puts frequency_c.to_s 
+
+puts " "
+puts "Tap >> Enter to view final report..."
+
+
+#final report section 
+puts "$$$$$$$$$$$========================================================================$$$$$$$$$$$"
+puts "----------------------------------------REPORT------------------------------------------------"
+puts "Name; " + person_name.to_s 
+puts "total positive cash flow to date " + "$" + total_i.to_s 
+puts "total negative cash flow to date " + "$" + total_e.to_s 
+puts "gross profit to date             " + "$" + nprofit.to_s 
+#puts "net profit to date " + "$" + pcashflow.to_s 
+#puts "ratio of liabilites to liquid capital " + "$" + pcashflow.to_s 
+#puts "total positive cash flow to date " + "$" + pcashflow.to_s 
