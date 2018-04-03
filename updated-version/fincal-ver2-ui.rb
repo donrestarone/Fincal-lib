@@ -13,10 +13,11 @@ class Interface
 	def print_main_menue
 		puts "[1] ADD savings account" 
 		puts "[2] VIEW all savings accounts"
-		puts "[3] ADD investment account" 
-		puts "[4] VIEW all investments"
-		puts "[5] total savings/investments REPORT" 
-		puts "[6] aggregate CASHFLOW statement"
+		puts "[3] ADD investment account"
+		puts "[4] ADD liability" 
+		puts "[5] VIEW all investments/liabilities"
+		puts "[6] total savings/investments REPORT"
+		puts "[7] calculate aggregate CASHFLOW statement"
 
 
 	end 
@@ -26,11 +27,12 @@ class Interface
 			when 1 then add_savings_account
 			when 2 then all_savings_accounts
 			when 3 then add_investment
-			when 4 then all_investments
-			when 5 then report
-			when 6 then cash_flow_statement
-			when 7 then report
-			when 8 then cash_flow_statement
+			when 4 then add_liability
+			when 5 then all_investments
+			when 6 then report
+			when 7 then cash_flow_statement
+			when 8 then report
+			when 9 then cash_flow_statement
 
 		end  
 
@@ -39,8 +41,32 @@ class Interface
 	def report
 		puts "your savings total is $#{Account.savings_report.inspect}"
 		puts "your investment total is $#{Account.investment_report.inspect}"
-	end 
+		puts "your total liabilities are $#{Account.liability_report.inspect}"
+		puts "your bottom-line is $#{Account.bottom_line.inspect}"
+			puts "enter how many months this data is for:"
+				months = gets.chomp.to_i
+			if months > 0 
+				Cashflow.calculate_equivalent_rate(months)
+				p "you earned an equivalent interest rate of #{calculate_equivalent_rate(months)} over a period of #{months} "
+			else 
+				p "month range not specified, equivalent rate not calculated."
+			end 
 
+
+	end 
+	
+	def add_liability 
+		p "please enter liability name"
+		account_name = gets.chomp
+		p "enter the amount of liability"
+		balance = gets.chomp
+		p "enter interest rate, 0 if N/A"
+		interest = gets.chomp 
+		p "if it is a recurring liability, enter frequency per year"
+		compounding_periods = gets.chomp
+		Account.add_liability(account_name, balance, interest, compounding_periods)
+	end 
+	
 	def add_savings_account #fix looping twice issue
 		p "please enter account name"
 		account_name = gets.chomp
@@ -70,6 +96,7 @@ class Interface
 		fixed_income = gets.chomp.to_i 
 		p "enter aggregate fixed costs"
 		fixed_costs = gets.chomp.to_i
+		Cashflow.add_cashflow(fixed_income, fixed_costs)
 		Cashflow.cashflow_direction(fixed_income, fixed_costs)
 		Cashflow.fixed_earning_spending_ratio(fixed_income, fixed_costs)
 
@@ -89,12 +116,23 @@ class Interface
 	end
 
 	def all_investments 
+		puts "					$$Investments$$"
 		Account.view_investments.each do |investment|
+			 
 			puts "=================================================================="
 			puts "account Name:#{investment.view_account_name.upcase}"
 			puts "account Balance:#{investment.view_balance}"
 			puts "account Interest:#{investment.view_interest_rate}"
 			puts "account compounding frequency:#{investment.view_compounding_periods}"
+			puts "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+		end 
+		puts "					~~Liabilities~~"
+		Account.view_liabilities.each do |liability|
+			puts "=================================================================="
+			puts "account Name:#{liability.view_account_name.upcase}"
+			puts "account Balance:#{liability.view_balance}"
+			puts "account Interest:#{liability.view_interest_rate}"
+			puts "account compounding frequency:#{liability.view_compounding_periods}"
 			puts "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
 		end 
 	end 
