@@ -18,6 +18,7 @@ class Interface
 		puts "[5] VIEW all investments/liabilities"
 		puts "[6] total savings/investments REPORT"
 		puts "[7] calculate aggregate CASHFLOW statement"
+		puts "[8] TVOM"
 
 
 	end 
@@ -31,7 +32,7 @@ class Interface
 			when 5 then all_investments
 			when 6 then report
 			when 7 then cash_flow_statement
-			when 8 then report
+			when 8 then tvom
 			when 9 then cash_flow_statement
 
 		end  
@@ -134,6 +135,21 @@ class Interface
 			puts "account Interest:#{liability.view_interest_rate}"
 			puts "account compounding frequency:#{liability.view_compounding_periods}"
 			puts "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+		end 
+	end 
+
+	class Tvom 
+		p "enter the calculation you would like to perform: fv, pv, annuity pv, annuity fv"
+		input = gets.chomp 
+		if input == "fv"
+			p "enter the "
+		elsif input == "pv"
+
+		elsif input == "annuity pv"
+
+		elsif input == "annuity fv"
+
+
 		end 
 	end 
 	
