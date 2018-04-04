@@ -42,19 +42,27 @@ class Tvom
 
 	def calculate_fv(calculation_name, interest_rate, years, compounding_frequency, present_value)
 		n = years * compounding_frequency
-		interest_factor = (1 + interest_rate / 100)
+		interest_factor = (1 + interest_rate.to_f / 100)
 		fv = present_value * interest_factor ** n
+		
 		return fv
 	end 
 
 	def calculate_pv(calculation_name, interest_rate, years, compounding_frequency, future_value)
 		n = years * compounding_frequency
-		division = 100
-		interest_factor = ( 1 + interest_rate / 100 ) 
-		p interest_factor
+		interest_factor = ( 1 + interest_rate.to_f / 100 ) 
 		pv = (future_value) / interest_factor ** n
+		return pv
 		
 	end
+
+	def calculate_annuity(calculation_name, interest_rate, years, compounding_frequency, future_value) #here calculation name is the annuity payment
+		n = years * compounding_frequency
+		interest_factor = ( 1 + interest_rate.to_f / 100 ) 
+		interest_decimal = (interest_rate.to_f / 100)
+		fv = calculation_name * (interest_factor.to_f ** n  - 1) / interest_decimal
+		return fv
+	end 
 
 end 
 
@@ -80,3 +88,7 @@ puts tvom.calculate_fv("test", 0.5, 1, 12, 1000).inspect
 
 # (name, interest_rate, years, compounding_frequency, future_value)
 puts tvom.calculate_pv("test", 9, 3, 1, 25000).inspect
+
+puts 
+puts 
+puts tvom.calculate_annuity(10000, 11, 2, 1, 0).inspect
