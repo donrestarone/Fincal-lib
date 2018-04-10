@@ -1,0 +1,95 @@
+html {
+	font-size: 10px;
+
+	/* Make 1rem = 10px. */
+	font-size: 50%; /* 10px / 16px = 0.625 or 62.5% */
+	background-color: white;
+	font-family: "Helvetica";
+
+}
+	/*layout*/
+
+.titleribbon {
+	background-color: green;
+
+}
+
+h1 {
+	font-size: 3em; 
+	color: black;
+	text-align: center;
+ }
+
+.navigationwrapper {
+	background-color: white;
+	
+}
+
+.ribbon1, .ribbon2, .ribbon3, .ribbon4, .ribbon5 {
+	background-color: silver;
+	display: block;
+	margin-top: 1px;
+	margin-bottom: 1px;
+	height: 20%;
+	text-align: center;
+	font-size: 2em;
+	padding: 0.5%;
+	 
+
+	/*padding: 10px;*/
+
+}
+
+.ribbon1 a, .ribbon2 a, .ribbon3 a, .ribbon4 a, .ribbon5 a {
+	
+	text-decoration: none;
+
+	/*padding: 10px;*/
+
+}
+
+.ribbonfooter{
+	background-color: black;
+	color: white;
+	text-align: center;
+	padding: 1%;
+	font-size: 1.5em;
+}
+	/*homepage*/
+
+.welcomeheading {
+	font-size: 3em;
+	text-align: center;
+	text-decoration: underline;
+	padding: 2.5%;
+}
+
+.welcometext {
+	text-align: center;
+	font-size: 2em;
+	padding: 2.5%;
+}
+
+.time {
+	font-size: 2em;
+	font-weight: bold;
+	text-align: center;
+	padding: 5%;
+}
+
+.accountwrapper {
+	padding: 1%;
+	background-color: white;
+}
+
+.eachaccount {
+	margin-bottom: 1px;
+	margin-top: 1px;
+	background-color: green;
+	padding: 2%;
+
+}
+
+.accountname {
+	font-size: 1.5em;
+}

@@ -1,0 +1,12 @@
+<h1>accounts</h1>
+<ul>
+ <% @all_accounts.each do |account| %>
+ 	<li>
+ 		<div class="accountwrapper">
+ 			<div class="eachaccount">
+ 				<p class="accountname"> NAME: <%= account.view_account %></p>
+ 			</div>
+ 		</div>
+ 	</li>
+ 	<% end %>
+ </ul>
