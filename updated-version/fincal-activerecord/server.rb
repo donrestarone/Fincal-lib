@@ -26,3 +26,4 @@ get '/accounts/:id' do
 	@title = 'Account'
 	erb :show_account
 end 
+
