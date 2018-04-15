@@ -1,0 +1,16 @@
+<% @accounts.each do |account| %> 
+	<h1>name: <%= account.account_name %></h1>
+	<h2>type: <%= account.category %></h2>
+	<h3>balance: <%= account.balance %></h3>
+	<br>
+	<strong>
+		Interest rate: <%= account.interest %>
+			
+	</strong>
+	<h4>
+		compounding frequency: <%= account.compounding_frequency%> |
+		periods: <%= account.compounding_periods %>
+			
+	</h4>
+
+<% end %>

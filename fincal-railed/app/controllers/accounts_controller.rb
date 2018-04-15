@@ -1,6 +1,8 @@
 class AccountsController < ApplicationController
 	
 	def index
+		@accounts = Account.all
+		#render: index 
 	
 	end 
 
