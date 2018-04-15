@@ -15,7 +15,7 @@ html {
 }
 
 h1 {
-	font-size: 3em; 
+	font-size: 3rem; 
 	color: black;
 	text-align: center;
  }
@@ -32,7 +32,7 @@ h1 {
 	margin-bottom: 1px;
 	height: 20%;
 	text-align: center;
-	font-size: 2em;
+	font-size: 2rem;
 	padding: 0.5%;
 	 
 
@@ -53,12 +53,12 @@ h1 {
 	color: white;
 	text-align: center;
 	padding: 1%;
-	font-size: 1.5em;
+	font-size: 1.5rem;
 }
 	/*homepage*/
 
 .welcomeheading {
-	font-size: 3em;
+	font-size: 3rem;
 	text-align: center;
 	text-decoration: underline;
 	padding: 2.5%;
@@ -66,12 +66,12 @@ h1 {
 
 .welcometext {
 	text-align: center;
-	font-size: 2em;
+	font-size: 2rem;
 	padding: 2.5%;
 }
 
 .time {
-	font-size: 2em;
+	font-size: 2rem;
 	font-weight: bold;
 	text-align: center;
 	padding: 5%;
@@ -91,5 +91,5 @@ h1 {
 }
 
 .accountname {
-	font-size: 1.5em;
+	font-size: 1.5rem;
 }
