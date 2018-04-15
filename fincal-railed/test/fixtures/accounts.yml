@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  account_name: MyString
+  category: MyString
+  balance: 1.5
+  interest: 1.5
+  compounding_frequency: 1
+  compounding_periods: 1
+
+two:
+  account_name: MyString
+  category: MyString
+  balance: 1.5
+  interest: 1.5
+  compounding_frequency: 1
+  compounding_periods: 1
