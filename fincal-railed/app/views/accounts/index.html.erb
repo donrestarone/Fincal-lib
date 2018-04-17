@@ -1,18 +1,5 @@
 <h1> Accounts </h1>
 <%= link_to("Add New Account", "accounts/new") %>
 <% @accounts.each do |account| %> 
-	<h2>name: <%= account.account_name %></h2>
-	<h3>type: <%= account.category %></h3>
-	<h4>balance: <%= account.balance %></h4>
-	<br>
-	<strong>
-		Interest rate: <%= account.interest %>
-			
-	</strong>
-	<h5>
-		compounding frequency: <%= account.compounding_frequency%> |
-		periods: <%= account.compounding_periods %>
-			
-	</h5>
-
+	<%= render 'single_account', an_account: account %>
 <% end %>
