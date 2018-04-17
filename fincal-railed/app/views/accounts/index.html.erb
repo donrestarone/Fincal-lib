@@ -1,5 +1,6 @@
 <h1> Accounts </h1>
 <%= link_to("Add New Account", "accounts/new") %>
+<%= link_to("Fincal Home", root_path) %>
 <% @accounts.each do |account| %> 
 	<%= render 'single_account', an_account: account %>
 <% end %>

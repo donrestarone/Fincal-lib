@@ -60,6 +60,10 @@ class AccountsController < ApplicationController
 	end 
 
 	def welcome 
-		
+		@time = Time.now
+		@dev = "Shashike J"
+		@version = 0.55
+		@date = "Monday/April/16/2018"
+
 	end 
 end
