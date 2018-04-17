@@ -2,11 +2,14 @@ class AccountsController < ApplicationController
 	
 	def index
 		@accounts = Account.all
+		@title = 'All Accounts'
 		#render: index 
 	
 	end 
 
 	def create
+		@title = 'Create New Account'
+
 		@account = Account.new
 		@account.account_name = params[:account][:account_name]
 		@account.category = params[:account][:category]
@@ -34,6 +37,7 @@ class AccountsController < ApplicationController
 
 	def show 
 		@account = Account.find(params[:id])
+		@title = @account.account_name
 	end 
 
 	def update
@@ -60,6 +64,7 @@ class AccountsController < ApplicationController
 	end 
 
 	def welcome 
+		@title = 'Fincal'
 		@time = Time.now
 		@dev = "Shashike J"
 		@version = 0.55
