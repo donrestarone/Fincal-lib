@@ -58,4 +58,8 @@ class AccountsController < ApplicationController
 		@account.destroy
 		redirect_to accounts_path
 	end 
+
+	def welcome 
+		
+	end 
 end
