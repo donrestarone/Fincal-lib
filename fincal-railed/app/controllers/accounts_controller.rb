@@ -41,10 +41,10 @@ class AccountsController < ApplicationController
 
 		@account.account_name = params[:account][:account_name]
 		@account.category = params[:account][:category]
-		@account.balance = params[:accounts][:balance]
-		@account.interest = params[:accounts][:interest]
-		@account.compounding_frequency = params[:accounts][:compounding_frequency]
-		@account.compounding_periods = params[:accounts][:compounding_periods]
+		@account.balance = params[:account][:balance]
+		@account.interest = params[:account][:interest]
+		@account.compounding_frequency = params[:account][:compounding_frequency]
+		@account.compounding_periods = params[:account][:compounding_periods]
 
 		if @account.save
 			redirect_to '/accounts'

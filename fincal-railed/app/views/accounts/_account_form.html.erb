@@ -1,0 +1,35 @@
+<%= form_for an_account do |f| %> 
+	<p>
+		<%= f.label :acount_name %><br>
+		<%= f.text_field :account_name %> 
+	</p>
+
+	<p>
+		<%= f.label :category %><br>
+		<%= f.text_field :category %> 
+	</p>
+
+	<p>
+		<%= f.label :balance %><br>
+		<%= f.number_field :balance %> 
+	</p>
+
+	<p>
+		<%= f.label :interest %><br>
+		<%= f.number_field :interest, :step => 0.001 %> 
+	</p>
+
+	<p>
+		<%= f.label :compounding_frequency %><br>
+		<%= f.number_field :compounding_frequency %>
+	</p>
+
+	<p>
+		<%= f.label :compounding_periods %><br>
+		<%= f.number_field :compounding_periods %> 
+	</p>
+
+	<p>
+		<%= f.submit "Save" %>
+	</p>
+<% end %> 

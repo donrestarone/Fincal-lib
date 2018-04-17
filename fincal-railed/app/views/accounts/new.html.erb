@@ -1,37 +1,4 @@
 <h1>Create New Account</h1>
-<%= link_to("Back to Accounts", "/accounts") %> 
-<%= form_for(@account) do |f| %> 
-	<p>
-		<%= f.label :acount_name %><br>
-		<%= f.text_field :account_name %> 
-	</p>
+<%= link_to 'Back to Accounts', accounts_path %> 
+<%= render 'account_form', an_account: @account %>
 
-	<p>
-		<%= f.label :category %><br>
-		<%= f.text_field :category %> 
-	</p>
-
-	<p>
-		<%= f.label :balance %><br>
-		<%= f.number_field :balance %> 
-	</p>
-
-	<p>
-		<%= f.label :interest %><br>
-		<%= f.number_field :interest, :step => 0.001 %> 
-	</p>
-
-	<p>
-		<%= f.label :compounding_frequency %><br>
-		<%= f.number_field :compounding_frequency %>
-	</p>
-
-	<p>
-		<%= f.label :compounding_periods %><br>
-		<%= f.number_field :compounding_periods %> 
-	</p>
-
-	<p>
-		<%= f.submit "Save" %>
-	</p>
-<% end %> 
