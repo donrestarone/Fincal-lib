@@ -1,2 +1,6 @@
 <h1><%= @account.account_name %></h1>
 <%= render 'single_account', an_account: @account %> 
+<div>
+	<%= link_to 'Edit', edit_account_path %> 
+	<%= link_to 'Delete Account', account_path(@account), method: :delete, data: {confirm: "are you sure you want to delete this '#{@account.category}' account?"} %>
+</div>
