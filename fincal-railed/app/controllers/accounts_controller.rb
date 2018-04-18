@@ -26,6 +26,7 @@ class AccountsController < ApplicationController
 	end 
 
 	def new 
+		@title = 'Create New Account'
 		@account = Account.new 
 	end 
 

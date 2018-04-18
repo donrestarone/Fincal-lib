@@ -1,8 +1,4 @@
-class Account < ApplicationRecord
-	validates :name, length: {in: 4..40}, presence: true, uniqueness: true
-	validates :category, presence: true
-
-	def calculate_fv(interest, compounding_periods, compounding_frequency, present_value)
+def calculate_fv(interest, compounding_periods, compounding_frequency, present_value)
 		n = compounding_periods
 		interest_factor = (1 + (interest.to_f / 100)/compounding_frequency)
 		fv = present_value * interest_factor ** n
@@ -32,6 +28,3 @@ class Account < ApplicationRecord
 		interest_decimal = (interest_rate.to_f / 100)
 		pv = payment * ( (1 - (1 / interest_factor) ) / interest_decimal)
 	end
-
-end
-
