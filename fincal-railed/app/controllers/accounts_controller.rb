@@ -11,7 +11,7 @@ class AccountsController < ApplicationController
 		@title = 'Create New Account'
 
 		@account = Account.new
-		@account.account_name = params[:account][:account_name]
+		@account.name = params[:account][:name]
 		@account.category = params[:account][:category]
 		@account.balance = params[:account][:balance]
 		@account.interest = params[:account][:interest]
@@ -37,13 +37,13 @@ class AccountsController < ApplicationController
 
 	def show 
 		@account = Account.find(params[:id])
-		@title = @account.account_name
+		@title = @account.name
 	end 
 
 	def update
 		@account = Account.find(params[:id])
 
-		@account.account_name = params[:account][:account_name]
+		@account.name = params[:account][:name]
 		@account.category = params[:account][:category]
 		@account.balance = params[:account][:balance]
 		@account.interest = params[:account][:interest]
