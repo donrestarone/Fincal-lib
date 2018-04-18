@@ -71,4 +71,8 @@ class AccountsController < ApplicationController
 		@date = "Monday/April/16/2018"
 
 	end 
+
+	def tvom 
+		render :tvom
+	end 
 end
