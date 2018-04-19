@@ -1,4 +1,5 @@
 class AccountsController < ApplicationController
+	before_action :require_login
 	
 	def index
 		@accounts = Account.all

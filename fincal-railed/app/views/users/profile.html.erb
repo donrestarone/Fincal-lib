@@ -1,0 +1,42 @@
+<h1>User#profie</h1>
+<p>Find me in app/views/user/profie.html.erb</p>
+<%= link_to "Logout", session_destroy_path%>
+
+
+<%= form_for @user do |f| %>
+
+  <%= f.label :first_name %>:
+  <%= f.text_field :first_name, value: @user.first_name%><br />
+
+  <%= f.label :last_name %>:
+  <%= f.text_field :last_name, value: @user.last_name %><br />
+
+  <%= f.label :username %>:
+  <%= f.text_field :username, value: @user.username %><br />
+
+  <%= f.label :email %>:
+  <%= f.text_field :email, value: @user.email %><br />
+
+
+  <%= f.submit %>
+<% end %>
+
+Update Password
+
+
+<%= form_for :update_password, url: user_updatepassword_path  do |f| %>
+
+	<%= f.label :old_password %>:
+ 	<%= f.password_field :old_password %><br />
+
+	<%= f.label :password %>:
+	<%= f.password_field :password %><br />
+
+	<%= f.label :password_confirmation %>:
+	<%= f.password_field :password_confirmation %><br />
+
+	<%= f.submit %>
+<% end %>
+
+
+<%= link_to "Delete Account", @user, method: :delete,  data: { confirm: "Are you sure?" }%>

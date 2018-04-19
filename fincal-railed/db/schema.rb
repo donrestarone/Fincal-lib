@@ -23,4 +23,14 @@ ActiveRecord::Schema.define(version: 20180417202739) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "users", force: :cascade do |t|
+    t.string "first_name", limit: 10, null: false
+    t.string "last_name", limit: 10, null: false
+    t.string "username", limit: 20, null: false
+    t.string "email", limit: 30, null: false
+    t.string "password_digest", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
 end
