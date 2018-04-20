@@ -1,5 +1,6 @@
 class User < ApplicationRecord
-
+	has_many :accounts
+	
 	has_secure_password
 
 	PASSWORD_FORMAT = /\A
