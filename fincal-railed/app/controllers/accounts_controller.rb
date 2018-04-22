@@ -53,7 +53,7 @@ class AccountsController < ApplicationController
 		@account.compounding_periods = params[:account][:compounding_periods]
 
 		if @account.save
-			redirect_to '/accounts'
+			redirect_to 'users/accounts'
 		else 
 			render :new
 		end 
@@ -62,7 +62,7 @@ class AccountsController < ApplicationController
 	def destroy
 		@account = Account.find(params[:id])
 		@account.destroy
-		redirect_to accounts_path
+		redirect_to users_accounts_path
 	end 
 
 	def welcome 

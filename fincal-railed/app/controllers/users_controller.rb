@@ -70,7 +70,14 @@ class UsersController < ApplicationController
 
   end
 
- 
+  def welcome 
+    @title = 'Fincal'
+    @time = Time.now
+    @dev = "Shashike J"
+    @version = 0.55
+    @date = "wednesday/April/18/2018"
+
+  end 
 
   private
 

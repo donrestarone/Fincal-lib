@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
 #   	#Manuall Routes
 #   	#Main Routes
-#   	root 'main#index'
+  	root 'users#welcome'
 
 #   	#User Routes
 #   	get '/user/profile' => 'users#profile'
@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 #     get 'session/destroy' => 'sessions#destroy'
 
 #   root 'main#index'
-#   get '/tvom' => 'accounts#tvom'
+   get '/tvom' => 'accounts#tvom'
 #   resources :accounts 
 
 resource :users, only: %i(create update destroy) do
