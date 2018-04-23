@@ -11,8 +11,8 @@ class User < ApplicationRecord
 	  (?=.*[[:^alnum:]]) # Must contain a symbol
 	/x
 
-	validates :password, presence: true, length: {:within => 6..40}, format: { with: PASSWORD_FORMAT }, confirmation: true, on: :create 
-	validates :password, allow_nil: true, length: {:within => 6..40}, format: { with: PASSWORD_FORMAT }, confirmation: true, on: :update
+	#validates :password, presence: true, length: {:within => 6..40}, format: { with: PASSWORD_FORMAT }, confirmation: true, on: :create 
+	#validates :password, allow_nil: true, length: {:within => 6..40}, format: { with: PASSWORD_FORMAT }, confirmation: true, on: :update
 
 	validates :email, presence: true, uniqueness: true
 	validates_format_of :email,:with => /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/

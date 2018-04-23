@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   	@user = User.new(user_params)
   	# If user get saved to database
   	if @user.save
-  		redirect_to login_path
+  		redirect_to new_sessions_path
   	else
   	#If there is error while saving to database
   		render :new

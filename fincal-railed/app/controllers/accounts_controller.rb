@@ -2,16 +2,16 @@ class AccountsController < ApplicationController
 	before_action :require_login
 	
 	def index
-		@accounts = Account.all
+		@accounts = current_user.accounts
 		@title = 'All Accounts'
-		#render: index 
+		render :index 
 	
 	end 
 
 	def create
 		@title = 'Create New Account'
-
 		@account = Account.new
+		@account.user = current_user
 		@account.name = params[:account][:name]
 		@account.category = params[:account][:category]
 		@account.balance = params[:account][:balance]
@@ -20,7 +20,7 @@ class AccountsController < ApplicationController
 		@account.compounding_periods = params[:account][:compounding_periods]
 		
 		if @account.save
-			redirect_to '/accounts'
+			redirect_to users_accounts_path
 		else 
 			render :new
 		end

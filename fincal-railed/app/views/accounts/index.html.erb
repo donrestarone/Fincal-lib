@@ -1,8 +1,9 @@
 <title><%= @title %></title>
 <h1> Accounts </h1>
-<%= link_to("Add New Account", "accounts/new") %>
+<%= link_to "Add New Account", new_users_account_path%>
 <%= link_to("Fincal Home", root_path) %>
 <%= link_to("Time Value of Money", tvom_path) %>
+
 <% @accounts.each do |account| %> 
 	<%= render 'single_account', an_account: account %>
 <% end %>

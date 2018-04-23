@@ -9,7 +9,7 @@
 </div>
 <% end %>
 
-<%= form_for an_account do |f| %> 
+<%= form_for an_account, url: users_accounts_path do |f| %> 
 	<p>
 		<%= f.label :name %><br>
 		<%= f.text_field :name %> 

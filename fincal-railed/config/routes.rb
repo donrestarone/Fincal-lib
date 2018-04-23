@@ -23,7 +23,7 @@ Rails.application.routes.draw do
    get '/tvom' => 'accounts#tvom'
 #   resources :accounts 
 
-resource :users, only: %i(create update destroy) do
+resource :users, only: %i(new create update destroy) do
   resources :accounts
 end
 
