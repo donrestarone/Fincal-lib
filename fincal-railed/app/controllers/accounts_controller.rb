@@ -75,6 +75,19 @@ class AccountsController < ApplicationController
 	end 
 
 	def tvom 
+		@accounts = current_user.accounts
 		render :tvom
+	end 
+
+	def tvom_results
+		@result = "you typed the wrong selection"
+		#finds the account that the person chooses in the form from params
+		@account = current_user.accounts.find(params[:user_choice][:account])
+
+		#assigns the value that the user chooses for the function they want to invoke on the account
+		@selection = params[:user_choice][:choice].to_i
+		case @selection
+			when 1 then @result =  @account.calculate_fv
+		end
 	end 
 end

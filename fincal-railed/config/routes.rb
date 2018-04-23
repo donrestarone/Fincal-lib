@@ -22,6 +22,7 @@ Rails.application.routes.draw do
 #   root 'main#index'
    get '/tvom' => 'accounts#tvom'
 #   resources :accounts 
+	post '/tvom/results' => 'accounts#tvom_results', as: :tvom_choice
 
 resource :users, only: %i(new create update destroy) do
   resources :accounts

@@ -4,12 +4,9 @@ class Account < ApplicationRecord
 	validates :name, length: {in: 4..40}, presence: true, uniqueness: true
 	validates :category, presence: true
 
-	def calculate_fv(interest, compounding_periods, compounding_frequency, present_value)
-		n = compounding_periods
+	def calculate_fv
 		interest_factor = (1 + (interest.to_f / 100)/compounding_frequency)
-		fv = present_value * interest_factor ** n
-		
-		return fv
+		fv = balance * interest_factor ** compounding_periods
 	end 
 
 	def calculate_pv(interest, compounding_periods, compounding_frequency, future_value)
