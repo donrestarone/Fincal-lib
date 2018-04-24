@@ -70,7 +70,7 @@ class AccountsController < ApplicationController
 		@time = Time.now
 		@dev = "Shashike J"
 		@version = 0.55
-		@date = "wednesday/April/18/2018"
+		@date = "monday/April/23/2018"
 
 	end 
 
