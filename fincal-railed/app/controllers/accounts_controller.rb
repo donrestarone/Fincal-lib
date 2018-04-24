@@ -1,6 +1,6 @@
 class AccountsController < ApplicationController
 	before_action :require_login
-	
+	before_action :require_ownership, only: [:show, :edit, :update, :destroy]
 	def index
 		@accounts = current_user.accounts
 		@title = 'All Accounts'
@@ -38,17 +38,17 @@ class AccountsController < ApplicationController
 	end 
 
 	def show 
-		owner_id = (params[:id])
-		the_account = Account.find(owner_id)
-		#if the_account != true
-			if the_account.user_id == current_user.id
+		# owner_id = (params[:id])
+		# the_account = Account.find(owner_id)
+		# #if the_account != true
+		# 	if the_account.user_id == current_user.id
 			
-				@account = Account.find(params[:id])
-				@title = @account.name
+			# 	@account = Account.find(params[:id])
+			# 	@title = @account.name
 			
-			else 
-			redirect_to users_accounts_path
-			end 
+			# else 
+			# redirect_to users_accounts_path
+			# end 
 		#else 
 			#redirect_to users_accounts_path
 		#end 
@@ -62,7 +62,7 @@ class AccountsController < ApplicationController
 	def update
 
 		#need to update this method, this is faulty as well. 
-		@account = Account.find(params[:id])
+		#@account = Account.find(params[:id])
 
 		@account.name = params[:account][:name]
 		@account.category = params[:account][:category]
@@ -81,7 +81,7 @@ class AccountsController < ApplicationController
 	def destroy
 
 		#and this as well. 
-		@account = Account.find(params[:id])
+		#@account = Account.find(params[:id])
 		@account.destroy
 		redirect_to users_accounts_path
 	end 
@@ -102,4 +102,19 @@ class AccountsController < ApplicationController
 			when 1 then @result =  @account.calculate_fv
 		end
 	end 
+
+	private 
+
+	def require_ownership
+		owner_id = (params[:id])
+		the_account = Account.find(owner_id)
+		if the_account.user_id == current_user.id
+			
+				@account = Account.find(params[:id])
+				@title = @account.name
+			
+		else 
+			redirect_to users_accounts_path
+		end 
+	end
 end
