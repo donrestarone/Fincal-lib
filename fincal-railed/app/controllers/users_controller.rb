@@ -73,10 +73,10 @@ class UsersController < ApplicationController
 
   def welcome 
     @title = 'Fincal'
-    @time = Time.now
+    @date = Time.now.strftime("%A-%B-%d-%Y")
     @dev = "Shashike J"
     @version = 0.55
-    @date = "monday/April/23/2018"
+    @update_date = "Tuesday/April/24/2018"
 
   end 
 
