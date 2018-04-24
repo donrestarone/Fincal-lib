@@ -56,6 +56,11 @@ class AccountsController < ApplicationController
 		#@account = Account.find(params[:id])
 		#the above code is problematic. need to implement something like this vv 
 		#@account = current_user.accounts
+		@creation_date = @account.created_at.strftime("%A-%Y-%B-%d")
+		#@last_updated = @account.updated_at.strftime("%Y-%m-%d")
+		
+
+		#@creation_date = @account.created_at
 		
 	end 
 
