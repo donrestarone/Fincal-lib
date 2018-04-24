@@ -1,4 +1,4 @@
-<h1>User#new</h1>
+<h1>Create New Account</h1>
 <%= form_for @user do |f| %>
 
 <!-- Display Error Message if User didn't saved -->
@@ -11,17 +11,28 @@
   <% end %>
 <!-- End Error Message -->
 
-  <%= f.label :first_name %>:
-  <%= f.text_field :first_name %><br />
+  <%= f.label :first_name %>: 
+  <%= f.text_field :first_name, placeholder: "letters only" %><br />
 
   <%= f.label :last_name %>:
-  <%= f.text_field :last_name %><br />
+  <%= f.text_field :last_name, placeholder: "letters only" %><br />
 
   <%= f.label :username %>:
   <%= f.text_field :username %><br />
 
   <%= f.label :email %>:
   <%= f.text_field :email %><br />
+    
+    <div>
+      <strong>password conditions</strong>
+      <ul>
+        <li>must contain 6 or more characters</li>
+        <li>must contain a digit</li>
+        <li>must contain a lower case character</li>
+        <li>must contain an uppercase character</li>
+        <li>symbols are optional, for your mental sanity</li>
+      </ul>
+    </div>
 
   <%= f.label :password %>:
   <%= f.password_field :password %><br />
