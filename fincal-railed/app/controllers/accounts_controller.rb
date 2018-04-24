@@ -65,15 +65,6 @@ class AccountsController < ApplicationController
 		redirect_to users_accounts_path
 	end 
 
-	def welcome 
-		@title = 'Fincal'
-		@time = Time.now
-		@dev = "Shashike J"
-		@version = 0.55
-		@date = "monday/April/23/2018"
-
-	end 
-
 	def tvom 
 		@accounts = current_user.accounts
 		render :tvom
