@@ -38,11 +38,30 @@ class AccountsController < ApplicationController
 	end 
 
 	def show 
-		@account = Account.find(params[:id])
-		@title = @account.name
+		owner_id = (params[:id])
+		the_account = Account.find(owner_id)
+		#if the_account != true
+			if the_account.user_id == current_user.id
+			
+				@account = Account.find(params[:id])
+				@title = @account.name
+			
+			else 
+			redirect_to users_accounts_path
+			end 
+		#else 
+			#redirect_to users_accounts_path
+		#end 
+
+		#@account = Account.find(params[:id])
+		#the above code is problematic. need to implement something like this vv 
+		#@account = current_user.accounts
+		
 	end 
 
 	def update
+
+		#need to update this method, this is faulty as well. 
 		@account = Account.find(params[:id])
 
 		@account.name = params[:account][:name]
@@ -60,6 +79,8 @@ class AccountsController < ApplicationController
 	end 
 
 	def destroy
+
+		#and this as well. 
 		@account = Account.find(params[:id])
 		@account.destroy
 		redirect_to users_accounts_path
