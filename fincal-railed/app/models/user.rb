@@ -13,7 +13,11 @@ class User < ApplicationRecord
 
 	# (?=.*[[:^alnum:]])
 
-	validates :password, presence: true, length: {:within => 6..40}, format: { with: PASSWORD_FORMAT }, confirmation: true, on: :create 
+	validates :password, presence: true, length: {:within => 6..40}, format: { with: /\A(?=.{6,})/, message: "length minimum 6 characters"  }, confirmation: true, on: :create
+	validates :password, presence: true, length: {:within => 6..40}, format: { with: /\A(?=.*\d)/, message: "must contain a digit"  }, confirmation: true, on: :create
+	validates :password, presence: true, length: {:within => 6..40}, format: { with: /\A(?=.*[a-z])/, message: "must contain lower case character"  }, confirmation: true, on: :create
+	validates :password, presence: true, length: {:within => 6..40}, format: { with: /\A(?=.*[A-Z])/, message: "must contain uppercase character"  }, confirmation: true, on: :create
+
 	validates :password, allow_nil: true, length: {:within => 6..40}, format: { with: PASSWORD_FORMAT }, confirmation: true, on: :update
 
 	validates :email, presence: true, uniqueness: true

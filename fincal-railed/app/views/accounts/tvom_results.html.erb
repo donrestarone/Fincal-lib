@@ -13,7 +13,7 @@
 		<% end %>
 	</p>
 <% else %> 
-	<p> you discounted $<%= @interest_portion.abs %> of interest, in <%= @interest_time %> periods, where interest was compounded 
+	<p> you discounted $<%= number_with_delimiter(@interest_portion.abs, :delimiter => ',')%> of interest, in <%= @interest_time %> periods, where interest was compounded 
 		<% if @frequency == 1 %> 
 			<strong>once a year</strong>
 		<% else %> 
