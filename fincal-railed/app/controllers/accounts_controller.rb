@@ -107,6 +107,8 @@ class AccountsController < ApplicationController
 		case @selection
 			when 1 then @result =  @account.calculate_fv
 			when 2 then @result = @account.calculate_pv
+			when 3 then @result = @account.calculate_fv_annuity
+			when 4 then @result = @account.calculate_pv_annuity
 		end
 	end 
 

@@ -27,11 +27,12 @@ def calculate_fv(interest, compounding_periods, compounding_frequency, present_v
 		return fv
 	end 
 
-	def calculate_pv_annuity(payment, interest_rate, years, compounding_frequency, future_value) #here calculation name is the annuity payment
-		n = years * compounding_frequency
-		interest_factor = ( 1 + interest_rate.to_f / 100 ) ** n 
-		interest_decimal = (interest_rate.to_f / 100)
+	def calculate_pv_annuity(payment, interest_rate, years, compounding_frequency) #here calculation name is the annuity payment
+		#n = years * compounding_frequency
+		interest_factor = ( 1 + (interest_rate.to_f / 100) / compounding_frequency ) **  years
+		interest_decimal = (interest_rate.to_f / 100) / compounding_frequency
 		pv = payment * ( (1 - (1 / interest_factor) ) / interest_decimal)
+		p pv
 	end
 
 
@@ -58,10 +59,21 @@ def calculate_fv(interest, compounding_periods, compounding_frequency, present_v
 
 #test calculate_fv_annuity method. expected output is 21100. this works
 
-int = 11
-yrs = 2
-comp_freq = 1
-fv = 25000
-pmt = 10000
+# int = 11
+# yrs = 2
+# comp_freq = 1
+# fv = 25000
+# pmt = 10000
 
-calculate_fv_annuity(pmt, int, yrs, comp_freq)
+# calculate_fv_annuity(pmt, int, yrs, comp_freq)
+
+
+
+
+	#test calculate_pv_annuity
+	int = 11
+	pmt = 10000
+	periods = 2
+calculate_pv_annuity(pmt, int, periods, 12 )
+
+
