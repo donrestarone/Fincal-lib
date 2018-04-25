@@ -1,1 +1,11 @@
-<%= @result %>
+<% if @interest_portion > 0 %>
+	<p> you earned $<%= @interest_portion %> of interest </p>
+<% else %> 
+	<p> you discounted $<%= @interest_portion.abs %> of interest </p>
+<% end %>	
+
+
+<strong>
+<%= @calculation_performed %>	
+$<%= @result %>
+</strong>

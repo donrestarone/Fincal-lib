@@ -78,7 +78,8 @@ class AccountsController < ApplicationController
 		@account.compounding_periods = params[:account][:compounding_periods]
 
 		if @account.save
-			redirect_to 'users/accounts'
+			redirect_to users_accounts_path
+			#'users/accounts'
 		else 
 			render :new
 		end 
@@ -101,15 +102,25 @@ class AccountsController < ApplicationController
 		@result = "you typed the wrong selection"
 		#finds the account that the person chooses in the form from params
 		@account = current_user.accounts.find(params[:user_choice][:account])
+		account_balance = @account.balance
+		
+
+		
+
 
 		#assigns the value that the user chooses for the function they want to invoke on the account
 		@selection = params[:user_choice][:choice].to_i
 		case @selection
-			when 1 then @result =  @account.calculate_fv
+			when 1 then @result =  @account.calculate_fv 
+				@calculation_performed = 'computed future value'
 			when 2 then @result = @account.calculate_pv
+				@calculation_performed = 'computed present value'
 			when 3 then @result = @account.calculate_fv_annuity
+				@calculation_performed = 'computed future value of the annuity payments'
 			when 4 then @result = @account.calculate_pv_annuity
+				@calculation_performed = 'computed present value of the annuity payments'
 		end
+		@interest_portion = @result - account_balance
 	end 
 
 	private 
