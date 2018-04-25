@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 #     get 'session/destroy' => 'sessions#destroy'
 
 #   root 'main#index'
-   get '/tvom' => 'accounts#tvom', as: :tvom_landing
+   get '/tvom' => 'accounts#tvom' #, as: :tvom_landing
 #   resources :accounts 
 	post '/tvom/results' => 'accounts#tvom_results', as: :tvom_choice
 
