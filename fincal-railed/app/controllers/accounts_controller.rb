@@ -1,6 +1,7 @@
 class AccountsController < ApplicationController
 	before_action :require_login
 	before_action :require_ownership, only: [:show, :edit, :update, :destroy]
+	
 	def index
 		@accounts = current_user.accounts
 		@title = 'All Accounts'
@@ -105,6 +106,7 @@ class AccountsController < ApplicationController
 		@selection = params[:user_choice][:choice].to_i
 		case @selection
 			when 1 then @result =  @account.calculate_fv
+			when 2 then @result = @account.calculate_pv
 		end
 	end 
 

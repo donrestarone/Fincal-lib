@@ -9,10 +9,9 @@ class Account < ApplicationRecord
 		fv = balance * interest_factor ** compounding_periods
 	end 
 
-	def calculate_pv(interest, compounding_periods, compounding_frequency, future_value)
-		n = years * compounding_frequency
+	def calculate_pv
 		interest_factor = ( 1 + interest.to_f / 100 ) 
-		pv = (future_value) / interest_factor ** n
+		pv = (balance) / interest_factor ** compounding_periods
 		return pv
 		
 	end

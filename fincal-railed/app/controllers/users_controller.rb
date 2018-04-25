@@ -11,8 +11,6 @@ class UsersController < ApplicationController
   	@user = User.new
   end
 
-
-
   def create
   	@user = User.new(user_params)
   	# If user get saved to database
@@ -78,6 +76,10 @@ class UsersController < ApplicationController
     @version = 0.55
     @update_date = "Tuesday/April/24/2018"
 
+  end 
+
+  def about 
+    render :about
   end 
 
   private

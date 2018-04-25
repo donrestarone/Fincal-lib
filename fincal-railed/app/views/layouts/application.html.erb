@@ -7,17 +7,17 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
+  <header>
+    <%= link_to 'about', about_path %>
+    <% if current_user %> 
+      hello <%= current_user.first_name %>
+        <%= link_to 'Log Out', sessions_path, method: :delete %>
+      <% else %> 
+      <p><%= link_to 'New Account', new_users_path %></p>
+      <p><%= link_to 'Login', new_sessions_path %></p>
+      <% end %> 
+  </header>
   <body>
-  	<p>
-  		<% if current_user %> 
-  		hello <%= current_user.first_name %>
-  			<p><%= link_to 'Log Out', sessions_path, method: :delete %></p>
-  		<% else %> 
-  		<p><%= link_to 'New Account', new_users_path %></p>
-  		<p><%= link_to 'Login', new_sessions_path %></p>
-  		<% end %> 
-  	</p>
     <%= yield %>
   </body>
 </html>
