@@ -1,8 +1,24 @@
 <% if @interest_portion > 0 %>
-	<p> you earned $<%= @interest_portion %> of interest, in <%= @interest_time %> periods, where interest was compounded <%= @frequency %> times a year 
+	<p> you earned $<%= @interest_portion %> of interest, in <%= @interest_time %> periods, where interest was compounded 
+		<% if @frequency == 1 %> 
+			<strong>once a year</strong>
+		<% else %> 
+			<strong>
+				<%= @frequency %> 
+				times a year
+			</strong>
+		<% end %>
 	</p>
 <% else %> 
-	<p> you discounted $<%= @interest_portion.abs %> of interest, in <%= @interest_time %> periods, where interest was compounded <%= @frequency %> times a year 
+	<p> you discounted $<%= @interest_portion.abs %> of interest, in <%= @interest_time %> periods, where interest was compounded 
+		<% if @frequency == 1 %> 
+			<strong>once a year</strong>
+		<% else %> 
+			<strong>
+				<%= @frequency %>
+				times a year
+			</strong>
+			<% end %> 
 	</p>
 <% end %>	
 
