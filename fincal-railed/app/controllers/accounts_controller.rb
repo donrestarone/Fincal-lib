@@ -6,7 +6,6 @@ class AccountsController < ApplicationController
 		@accounts = current_user.accounts
 		@title = 'All Accounts'
 		render :index 
-	
 	end 
 
 	def create
@@ -35,7 +34,6 @@ class AccountsController < ApplicationController
 	def edit
 		id = params[:id]
 		@account = Account.find(id)
-
 	end 
 
 	def show 
@@ -113,12 +111,20 @@ class AccountsController < ApplicationController
 		case @selection
 			when 1 then @result =  @account.calculate_fv 
 				@calculation_performed = 'computed future value'
+				@interest_time = @account.compounding_periods
+				@frequency = @account.compounding_frequency
 			when 2 then @result = @account.calculate_pv
 				@calculation_performed = 'computed present value'
+				@interest_time = @account.compounding_periods
+				@frequency = @account.compounding_frequency
 			when 3 then @result = @account.calculate_fv_annuity
 				@calculation_performed = 'computed future value of the annuity payments'
+				@interest_time = @account.compounding_periods
+				@frequency = @account.compounding_frequency
 			when 4 then @result = @account.calculate_pv_annuity
 				@calculation_performed = 'computed present value of the annuity payments'
+				@interest_time = @account.compounding_periods
+				@frequency = @account.compounding_frequency
 		end
 		@interest_portion = @result - account_balance
 	end 

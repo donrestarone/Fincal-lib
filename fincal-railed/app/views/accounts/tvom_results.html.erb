@@ -1,7 +1,9 @@
 <% if @interest_portion > 0 %>
-	<p> you earned $<%= @interest_portion %> of interest </p>
+	<p> you earned $<%= @interest_portion %> of interest, in <%= @interest_time %> periods, where interest was compounded <%= @frequency %> times a year 
+	</p>
 <% else %> 
-	<p> you discounted $<%= @interest_portion.abs %> of interest </p>
+	<p> you discounted $<%= @interest_portion.abs %> of interest, in <%= @interest_time %> periods, where interest was compounded <%= @frequency %> times a year 
+	</p>
 <% end %>	
 
 

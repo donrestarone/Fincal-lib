@@ -25,6 +25,7 @@ Rails.application.routes.draw do
 	post '/tvom/results' => 'accounts#tvom_results', as: :tvom_choice
 
 	get '/about' => 'users#about', as: :about
+	
 resource :users, only: %i(new create update destroy) do
   resources :accounts
 end
