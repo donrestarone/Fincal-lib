@@ -75,7 +75,6 @@ class UsersController < ApplicationController
     @dev = "Shashike J"
     @version = 0.60
     @update_date = "Wednesday/April/24/2018"
-
   end 
 
   def about 

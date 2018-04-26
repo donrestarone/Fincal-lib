@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   	# Check if session has user_id nil
   	if session[:user_id] == nil
   		# Redirect to root path
-  		redirect_to root_path
+  		redirect_to new_users_path
   	end
   end
 

@@ -4,6 +4,7 @@ class AccountsController < ApplicationController
 	
 	def index
 		@accounts = current_user.accounts
+
 		@title = 'All Accounts'
 		render :index 
 	end 
@@ -111,30 +112,28 @@ class AccountsController < ApplicationController
 		case @selection
 			when 1 then @result =  @account.calculate_fv 
 				@calculation_performed = 'computed future value'
-				@interest_time = @account.compounding_periods
-				@frequency = @account.compounding_frequency
+				
 			when 2 then @result = @account.calculate_pv
 				@calculation_performed = 'computed present value'
-				@interest_time = @account.compounding_periods
-				@frequency = @account.compounding_frequency
+				
 			when 3 then @result = @account.calculate_fv_annuity
 				@calculation_performed = 'computed future value of the annuity payments'
-				@interest_time = @account.compounding_periods
-				@frequency = @account.compounding_frequency
+				
 			when 4 then @result = @account.calculate_pv_annuity
 				@calculation_performed = 'computed present value of the annuity payments'
-				@interest_time = @account.compounding_periods
-				@frequency = @account.compounding_frequency
+				
 		end
+		@interest_time = @account.compounding_periods
+		@frequency = @account.compounding_frequency
 		@interest_portion = @result - account_balance
 	end 
 
 	private 
 
 	def require_ownership
-		owner_id = (params[:id])
+		owner_id = params[:id]
 		the_account = Account.find(owner_id)
-		if the_account.user_id == current_user.id
+		if the_account.user == current_user
 			
 				@account = Account.find(params[:id])
 				@title = @account.name
