@@ -13,31 +13,36 @@
 	<p>
 		<%= f.label :name %><br>
 		<%= f.text_field :name %> 
+		<p>This name will be referenced when performing calculations</p> <br>
 	</p>
 
 	<p>
 		<%= f.label :category %><br>
 		<%= f.text_field :category %> 
+		<p>Examples of categories can be; Annuity, Sinking Fund, Savings, Liability, Investment, Credit</p> <br>
 	</p>
 
 	<p>
 		<%= f.label :balance %><br>
-		<%= f.number_field :balance, :step => 0.001 %> 
+		<%= f.number_field :balance, :step => 0.001 %>
+		<p>As needed, this value will be used interchangeably as present value, future value or as an annuity payment</p> <br> 
 	</p>
 
 	<p>
 		<%= f.label :interest %><br>
-		<%= f.number_field :interest, :step => 0.001 %> 
+		<%= f.number_field :interest, :step => 0.001 %> <p>This will be used accordingly as the cost of borrowing money or as accumulating interest (depending on the calculation performed) </p> <br>
 	</p>
 
 	<p>
 		<%= f.label :compounding_frequency %><br>
 		<%= f.number_field :compounding_frequency %>
+		<p>Interest can be compounded either; monthly, yearly, quarterly or even daily. (respective values; 12, 4, 365)</p> <br>
 	</p>
 
 	<p>
 		<%= f.label :compounding_periods %><br>
 		<%= f.number_field :compounding_periods %> 
+		<p>Given the above frequency, for how many periods would interest be compounded for. Example, if interest is compounded monthly (compounding frequency; 12) and it would be in an account for 2 years; compounding periods would be 24 (12 x 2)</p> <br>
 	</p>
 
 	<p>
