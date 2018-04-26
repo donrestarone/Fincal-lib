@@ -2,7 +2,7 @@
 <%= link_to 'back to TVOM', tvom_path %> 
 
 <% if @interest_portion > 0 %>
-	<p> you earned $<%= @interest_portion %> of interest, in <%= @interest_time %> periods, where interest was compounded 
+	<p> you earned $<%= number_with_delimiter(@interest_portion, :delimiter => ',') %> of interest, in <%= @interest_time %> periods, where interest was compounded 
 		<% if @frequency == 1 %> 
 			<strong>once a year</strong>
 		<% else %> 
@@ -28,5 +28,5 @@
 
 <strong>
 <%= @calculation_performed %>	
-$<%= @result %>
+$<%= number_with_delimiter(@result, :delimiter => ',') %>
 </strong>
