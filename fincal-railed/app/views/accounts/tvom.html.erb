@@ -4,6 +4,23 @@
 <%= f.collection_select(:account,@accounts.all, :id, :name ) %>
  <%= f.select :choice, [['Calculate future value', 1],['Calculate present value', 2],['calculate future value annuity',3],['Calculate present value annuity', 4]] %>
  <%= f.submit 'Calculate' %>
+
+ <br>
+ <br>
+<h2>Possible calculations</h2>
+ 	<ul>
+ 		<li>Future Value</li>
+ 			<p>Given present value calculate future value by accumulating interest</p>
+ 		<li>Present Value</li>
+ 			<p>Given future value calculate present value by discounting interest</p>
+ 		<li>Future Value Annuity</li>
+ 			<p>Given equal monthly payments calculate the future value of a series of annuity payments by accumulating interest. Annuity payment value is derived from the balance in the account.</p>
+ 		<li>Present Value Annuity</li>
+ 			<p>Given equal monthly payments to be made in the future calculate the present value of a series of annuity payments by discounting interest. Annuity payment value is derived from the balance in the account.</p>
+ 	</ul>
 <% end %> 
+
+<h3>Future upgrades</h3>
+	<ul></ul>
 
 
