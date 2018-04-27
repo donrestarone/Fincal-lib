@@ -1,23 +1,37 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <div class="title">
     <title><%= @title %></title>
+    </div>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <header>
-    <%= link_to 'about', about_path %>
-    <% if current_user %> 
-      hello <%= current_user.first_name %>
+  <header class="actionheader">
+  
+        <%= link_to 'about', about_path %>
+      
+      <% if current_user %> 
+        <div class="logout">
         <%= link_to 'Log Out', sessions_path, method: :delete %>
+        </div>
+        <div class="usergreeting">
+        <strong> Hello, <%= current_user.first_name.capitalize %></strong>
+        </div>
+        
       <% else %> 
-      <p><%= link_to 'New Account', new_users_path %></p>
-      <p><%= link_to 'Login', new_sessions_path %></p>
+        <div class="newandlogin">
+          <p><%= link_to 'New Account', new_users_path %></p>
+          <p><%= link_to 'Login', new_sessions_path %></p>
+        </div>
       <% end %> 
   </header>
   <body>
     <%= yield %>
   </body>
+  <footer>
+    <p>New Updates Released Weekly</p>
+  </footer>
 </html>
