@@ -75,7 +75,7 @@ class UsersController < ApplicationController
     @dev = "Shashike J"
     @version = 0.60
 
-    @update_date = "Wednesday/April/24/2018"
+    @update_date = "Saturday/April/28/2018"
     
     
     if current_user
