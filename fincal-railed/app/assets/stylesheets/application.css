@@ -62,105 +62,116 @@ table {
 
 
 /*layout style*/
+/*@media screen and (min-width: 900px) {*/
+	html {
+		font-family: "Helvetica", sans-serif;
+		font-size: 10px;
+		background-color: #ACF0FF;
+	}
 
-html {
-	font-family: "Helvetica", sans-serif;
-	font-size: 10px;
-	background-color: #ACF0FF;
-}
 
+	h1 {
+		color: #D439FF;
+		text-align: center;
+		font-size: 4em;
+		font-weight: bold;
+		padding: 2%;
+	}
 
-h1 {
-	color: #D439FF;
-	text-align: center;
-	font-size: 4em;
-	font-weight: bold;
-	padding: 2%;
-}
+	h2 {
+		color: #FF6945;
+		text-align: center;
+		font-size: 2.5em;
+		padding: 2%;
+		font-weight: 650;
+	}
+	.actionheader {
+		font-size: 1.6em;
+		margin: auto;
+		width: 100%;
+		display: inline-block;
+	}
+	.usergreeting {
+		text-align: center;
+		padding: 2%;
+	}
 
-h2 {
-	color: #FF6945;
-	text-align: center;
-	font-size: 2.5em;
-	padding: 2%;
-	font-weight: 650;
-}
-.actionheader {
-	font-size: 1.6em;
-	margin: auto;
-	width: 100%;
-	display: inline-block;
-}
-.usergreeting {
-	text-align: center;
-	padding: 2%;
-}
+	.logout{
+		float: right;
+		margin: auto;
+	}
 
-.logout{
-	float: right;
-	margin: auto;
-}
+	.date {
+		text-align: center;
+		font-size: 1.2em;
+	}
 
-.date {
-	text-align: center;
-	font-size: 1.2em;
-}
+	.newandlogin {
+		float: right;
+		display: inline-block;
+	}
 
-.newandlogin {
-	float: right;
-	display: inline-block;
-}
+	.newandlogin p {
+		padding: 1%;
+	}
 
-.newandlogin p {
-	padding: 1%;
-}
+	.accountslink {
+		text-align: center;
+		font-size: 1.8em;
+		padding: 2%;
+	}
 
-.accountslink {
-	text-align: center;
-	font-size: 1.8em;
-	padding: 2%;
-}
+	.welcomeparagraph {
+		text-align: center;
+		padding: 2%;
+	}
+	.welcomeparagraph p {
+		padding: 1%;
+		font-size: 1.5em;
+	}
 
-.welcomeparagraph {
-	text-align: center;
-	padding: 2%;
-}
-.welcomeparagraph p {
-	padding: 1%;
-	font-size: 1.5em;
-}
+	.quote {
+		font-size: 1.7em;
+		text-align: center;
+		padding: 1%;
+	}
 
-.quote {
-	font-size: 1.7em;
-	text-align: center;
-	padding: 1%;
-}
+	.quotebox {
+		border-style: solid;
+		border-width: 2px;
+	}
 
-.quotebox {
-	border-style: solid;
-	border-width: 2px;
-}
+	.quote p {
+		padding: 2%;
+	}
 
-.quote p {
-	padding: 2%;
-}
+	.versionupdate p {
+		text-align: right;
+	}
 
-.versionupdate p {
-	text-align: right;
-}
+	footer {
+		text-align: center;
+		font-size: 1.2em;
+		padding: 2%;
+	}
 
-footer {
-	text-align: center;
-	font-size: 1.2em;
-	padding: 2%;
-}
+	a {
+		font-size: 1em;
+	}
 
-a {
-	font-size: 1em;
-}
+	.aboutbutton {
+		padding: 1%;
+		font-size: 1.5em;
+		float: left;
+	}
+/*}*/
+/*
+@media screen and (min-width: 480px) {
+	html {
+		font-family: "Helvetica", sans-serif;
+		font-size: 10px;
+		background-color: #ACF0FF;
+	}
 
-.aboutbutton {
-	padding: 1%;
-	font-size: 1.5em;
-	float: left;
-}
+	
+}*/
