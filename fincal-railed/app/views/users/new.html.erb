@@ -2,13 +2,18 @@
 
 
 <!-- Display Error Message if User didn't saved -->
-<% if @user.errors.any? %>
-    <ul>
-    <% @user.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
+
+  <% if @user.errors.any? %>
+    <div class="errors">
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
     <% end %>
-    </ul>
-  <% end %>
+
+
 
 <% if flash[:warning] %>
   <% flash[:warning].each do |error| %>
