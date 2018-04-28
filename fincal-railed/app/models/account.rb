@@ -35,5 +35,7 @@ class Account < ApplicationRecord
 		return rounded_pv
 	end
 
+	
+
 end
 

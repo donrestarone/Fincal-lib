@@ -1,24 +1,26 @@
 <h1>FinCal</h1>
 <h2>Your personal financial planner, database and manager</h2>
-	<div>
+	<div class="accountslink">
 		<%= link_to("Accounts", users_accounts_path) %>
 	</div>
 
-	<div>
+	<div class="date">
 		<strong>
 			date: <%= @date %> 
 		</strong>
 	</div>
 	
-	<div>
+	<div class="welcomeparagraph">
 		<p>Caffeinated development by <%= @dev %></p>
 		<p>Special thanks to <a href="https://www.linkedin.com/in/gurjantsadhra/">Gurjant Singh Sadhra</a> for his guidance</p>
 	</div>
 
 	<div>
-		<p>version: <%= @version %></p>
+		<p class="smithquote">"Labour was the first price, the original purchase - money that was paid for all things. It was not by gold or by silver, but by labour, that all wealth of the world was originally purchased" <span class="adamsmith">- Adam Smith</span></p>
 	</div>
 
-	<div>
-		<p>last update: <%= @update_date %> </p>
+	<div versionupdate>
+		<p>version: <%= @version %></p>
+		<p>last update: <%= @update_date %></p>
 	</div>
+	

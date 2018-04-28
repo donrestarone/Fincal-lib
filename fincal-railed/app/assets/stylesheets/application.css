@@ -16,7 +16,7 @@
 
 /*css reset*/
 
-/* html, body, div, span, applet, object, iframe,
+ html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
@@ -35,9 +35,9 @@ time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
-}*/
+}
 
-/*article, aside, details, figcaption, figure, 
+article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
@@ -58,9 +58,107 @@ q:before, q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
-}*/
+}
 
 
 /*layout style*/
 
+html {
+	font-family: "Helvetica", sans-serif;
+	font-size: 10px;
 
+}
+
+
+h1 {
+	color: red;
+	text-align: center;
+	font-size: 4em;
+	font-weight: bold;
+	padding: 2%;
+}
+
+h2 {
+	text-align: center;
+	font-size: 2.5em;
+	padding: 2%;
+	font-weight: 650;
+}
+.actionheader {
+	font-size: 1.6em;
+	margin: auto;
+	width: 80%;
+	display: inline;
+}
+.usergreeting {
+	text-align: center;
+	padding: 2%;
+}
+
+.logout{
+	float: right;
+	margin: auto;
+}
+
+.date {
+	text-align: center;
+	font-size: 1.2em;
+}
+
+.newandlogin {
+	float: right;
+	display: inline-block;
+	width: 8%;
+
+}
+
+.newandlogin p {
+	padding: 2%;
+}
+
+.accountslink {
+	text-align: center;
+	font-size: 1.8em;
+	padding: 2%;
+}
+
+.welcomeparagraph {
+	text-align: center;
+	padding: 2%;
+}
+.welcomeparagraph p {
+	padding: 1%;
+	font-size: 1.5em;
+}
+
+.smithquote {
+	font-size: 1.7em;
+	text-align: center;
+}
+
+.smithquote p {
+	padding: 2%;
+}
+
+.adamsmith {
+	font-weight: bold;
+}
+
+.versionupdate p {
+	text-align: right;
+}
+
+footer {
+	text-align: center;
+	font-size: 1.2em;
+	padding: 2%;
+}
+
+a {
+	font-size: 1em;
+}
+
+.aboutbutton {
+	padding: 1%;
+	font-size: 1.5em;
+}
