@@ -1,60 +1,61 @@
+/*@media screen and (min-width: 900px) {*/
+	h1 {
+		color: red;
+		text-align: center;
+		font-size: 50em;
+		padding: 2%;
+	}
 
-h1 {
-	color: red;
-	text-align: center;
-	font-size: 50em;
-	padding: 2%;
-}
+	.tvomchoices {
+		text-align: center;
+		padding: 1%;
+		/*font-size: 50px;*/
+	}
 
-.tvomchoices {
-	text-align: center;
-	padding: 1%;
-	/*font-size: 50px;*/
-}
+	.tvomcalculationheading h2 {
+		padding: 2%;
+	}
 
-.tvomcalculationheading h2 {
-	padding: 2%;
-}
+	.versionupdate {
+		text-align: center;
+	}
 
-.versionupdate {
-	text-align: center;
-}
+	.aboutlinks {
+		padding: 1%;
+		font-size: 1.5em;
+		text-align: center;
+	}
 
-.aboutlinks {
-	padding: 1%;
-	font-size: 1.5em;
-	text-align: center;
-}
+	.aboutheadline {
+		text-align: center;
+		font-size: 3em;
+	}
 
-.aboutheadline {
-	text-align: center;
-	font-size: 3em;
-}
+	.aboutbody {
+		font-size: 2em;
+		padding: 1%;
+		line-height: 30px;
+	}
 
-.aboutbody {
-	font-size: 2em;
-	padding: 1%;
-	line-height: 30px;
-}
+	.newuserform {
+		font-size: 1.5em;
+	}
 
-.newuserform {
-	font-size: 1.5em;
-}
+	.passconditions {
+		padding: 1%;
+	}
 
-.passconditions {
-	padding: 1%;
-}
+	.errors {
+		font-size: 1.5em;
+		text-align: center;
+		border-style: solid;
+		border-width: 2px;
+		display: inline-block;
+		margin-left: 37%;
+		color: red;
+	}
 
-.errors {
-	font-size: 1.5em;
-	text-align: center;
-	border-style: solid;
-	border-width: 2px;
-	display: inline-block;
-	margin-left: 37%;
-	color: red;
-}
-
-.errors li {
-	padding: 1%;
-}
+	.errors li {
+		padding: 1%;
+	}
+/*}*/

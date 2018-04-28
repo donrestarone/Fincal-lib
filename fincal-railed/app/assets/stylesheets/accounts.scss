@@ -1,94 +1,131 @@
 // Place all the styles related to the accounts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+/*@media screen and (min-width: 900px) {*/
+	.accountname {
+		text-align: left;
+	}
 
-.accountname {
-	text-align: left;
-}
+	.interestrate {
+		font-size: 2em;
+	}
 
-.interestrate {
-	font-size: 2em;
-}
+	.compounding {
+		font-size: 2em;
+	}
 
-.compounding {
-	font-size: 2em;
-}
+	.lastupdate {
+		font-size: 2em;
+	}
 
-.lastupdate {
-	font-size: 2em;
-}
+	.accounttype {
+		font-size: 2em;
+	}
 
-.accounttype {
-	font-size: 2em;
-}
+	.balance {
+		font-size: 2em;
+	}
 
-.balance {
-	font-size: 2em;
-}
+	.account {
+		width: 100%;
+		border-style: solid;
+		border-width: 4px;
+		padding: 1%;
+	}
 
-.account {
-	width: 100%;
-}
+	.topribbon {
+		font-size: 2em;
+		text-align: center;
+		padding: 1%;
+	}
+	.topribbon a {
+		padding: 1%;
+	}
 
-.topribbon {
-	font-size: 2em;
-	text-align: center;
-}
+	.backbutton a {
+		font-size: 2em;
+		padding: 1%
+	}
 
-.backbutton a {
-	font-size: 2em;
-	padding: 1%
-}
+	.calculationinfo {
+		font-size: 2em;
+		padding: 1%;
+	}
 
-.calculationinfo {
-	font-size: 2em;
-	padding: 1%;
-}
+	.calculationpara {
+		font-size: 1.5em;
+		padding: 1%;
+	}
 
-.calculationpara {
-	font-size: 1.5em;
-	padding: 1%;
-}
+	.tvomupgrades {
+		text-align: center;
+		font-size: 2em;
+		padding: 1%;
+	}
 
-.tvomupgrades {
-	text-align: center;
-	font-size: 2em;
-	padding: 1%;
-}
+	.tvomupgradeinfo {
+		font-size: 2em;
+		text-align: center;
+		padding: 1%;
+	}
 
-.tvomupgradeinfo {
-	font-size: 2em;
-	text-align: center;
-	padding: 1%;
-}
+	.tvomupgradewrapper {
+		border-style: solid;
+		border-width: 2px;
+		display: block;
+		width: 100%;
+		border: auto;
+	}
 
-.tvomupgradewrapper {
-	border-style: solid;
-	border-width: 2px;
-	display: block;
-	width: 100%;
-	border: auto;
-}
+	.tvomresult {
+		margin-top: 5%;
+		text-align: left;
+		font-size: 2em;
+		padding: 2%;
+	}
 
-.tvomresult {
-	margin-top: 5%;
-	text-align: left;
-	font-size: 2em;
-	padding: 2%;
-}
+	.tvomfinalresult {
+		font-size: 2em;
+		padding: 2%;
+		border-style: solid;
+		border-width: 2px;
+	}
 
-.tvomfinalresult {
-	font-size: 2em;
-	padding: 2%;
-	border-style: solid;
-	border-width: 2px;
-}
+	.accountcontrol {
+		font-size: 1.4em;
+		padding: 1%;
+	}
 
-.accountcontrol {
-	font-size: 1.4em;
-	padding: 1%;
-}
+	.backtoindex a {
+		font-size: 1.4em;
+	}
 
-.backtoindex a {
-	font-size: 1.4em;
-}
+	.newaccountform {
+		font-size: 1.5em;
+	}
+	.newaccountform p {
+		padding: 1%;
+	}
+/*}*/
+
+/*@media screen and (min-width: 480px) {
+	.topribbon {
+		font-size: 2em;
+		text-align: center;
+		padding: 1%;
+		position: fixed;
+		width: 10%;
+		height: 100%;
+		float: none;
+	}
+	.topribbon a {
+		top: 20%;
+		position: relative;
+		height: 70px;
+		width: 100%;
+		float: none;
+	}
+	body{
+		position: relative;
+	}
+}*/

@@ -2,7 +2,7 @@
 	
 	<h2 class="accountname">name: <%= link_to an_account.name, users_account_path(an_account) %></h2>
 	<h3 class="accounttype">type: <%= an_account.category %></h3>
-	<h4 class="balance">balance: $<%= an_account.balance %></h4>
+	<h4 class="balance">balance: $<%= number_with_delimiter(an_account.balance, :delimiter => ',') %></h4>
 	<br>
 	<strong class="interestrate">
 		Interest rate: <%= an_account.interest %>%
@@ -15,3 +15,6 @@
 	<p class="lastupdate">last updated on: <%= an_account.updated_at.strftime("%Y-%m-%d") %> </p>
 </div>
 
+<% if params[:id] %>
+	<%= render 'quote', quote: current_user.quotes %>
+<% end %>
