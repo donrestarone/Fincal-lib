@@ -1,32 +1,36 @@
-<%= link_to 'back to accounts', users_accounts_path %> 
-<%= link_to 'back to TVOM', tvom_path %> 
+<div class="aboutbutton">	
+	<%= link_to 'back to accounts', users_accounts_path %> 
+	<%= link_to 'back to TVOM', tvom_path %> 
+</div>
+<div class="tvomresult">
+	<% if @interest_portion > 0 %>
+		<p> you earned $<%= number_with_delimiter(@interest_portion, :delimiter => ',') %> of interest, in <%= @interest_time %> periods, where interest was compounded 
+			<% if @frequency == 1 %> 
+				<strong>once a year</strong>
+			<% else %> 
+				<strong>
+					<%= @frequency %> 
+					times a year
+				</strong>
+			<% end %>
+		</p>
+	<% else %> 
+		<p> you discounted $<%= number_with_delimiter(@interest_portion.abs, :delimiter => ',')%> of interest, in <%= @interest_time %> periods, where interest was compounded 
+			<% if @frequency == 1 %> 
+				<strong>once a year</strong>
+			<% else %> 
+				<strong>
+					<%= @frequency %>
+					times a year
+				</strong>
+				<% end %> 
+		</p>
+	<% end %>	
+</div>
 
-<% if @interest_portion > 0 %>
-	<p> you earned $<%= number_with_delimiter(@interest_portion, :delimiter => ',') %> of interest, in <%= @interest_time %> periods, where interest was compounded 
-		<% if @frequency == 1 %> 
-			<strong>once a year</strong>
-		<% else %> 
-			<strong>
-				<%= @frequency %> 
-				times a year
-			</strong>
-		<% end %>
-	</p>
-<% else %> 
-	<p> you discounted $<%= number_with_delimiter(@interest_portion.abs, :delimiter => ',')%> of interest, in <%= @interest_time %> periods, where interest was compounded 
-		<% if @frequency == 1 %> 
-			<strong>once a year</strong>
-		<% else %> 
-			<strong>
-				<%= @frequency %>
-				times a year
-			</strong>
-			<% end %> 
-	</p>
-<% end %>	
-
-
-<strong>
-<%= @calculation_performed %>	
-$<%= number_with_delimiter(@result, :delimiter => ',') %>
-</strong>
+<div class="tvomfinalresult">
+	<strong>
+	<%= @calculation_performed %>	
+	$<%= number_with_delimiter(@result, :delimiter => ',') %>
+	</strong>
+</div>
