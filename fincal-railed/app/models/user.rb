@@ -27,4 +27,12 @@ class User < ApplicationRecord
 
 	validates :first_name,presence: true, format: { with: /\A[a-zA-Z]+\z/,message: "Only letters are allowed" }
     validates :last_name,presence: true, format: { with: /\A[a-zA-Z]+\z/,message: "Only letters are allowed" }
+
+    def quotes
+    	quotes = ["Labour was the first price, the original purchase - money that was paid for all things. It was not by gold or by silver, but by labour, that all wealth of the world was originally purchased - Adam Smith", 
+    		"Science is the great antidote to the poison of enthusiasm and superstition - Adam Smith", "Science is the great antidote to the poison of enthusiasm and superstition - Adam Smith", 
+    		"This is one of those cases in which the imagination is baffled by the facts - Adam Smith"]
+    	random_quote = quotes.sample
+    	return random_quote
+    end 	
 end
