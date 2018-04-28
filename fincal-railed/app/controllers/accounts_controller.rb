@@ -3,6 +3,9 @@ class AccountsController < ApplicationController
 	before_action :require_ownership, only: [:show, :edit, :update, :destroy]
 	
 	def index
+		unless current_user
+			flash[:warning] = "sign up to add an account"
+		end
 		@accounts = current_user.accounts
 
 		@title = 'All Accounts'
