@@ -74,9 +74,15 @@ class UsersController < ApplicationController
     @date = Time.now.strftime("%A-%B-%d-%Y")
     @dev = "Shashike J"
     @version = 0.60
+
     @update_date = "Wednesday/April/24/2018"
-   
-    #@quote = @quote.quotes
+    
+    
+    if current_user
+      @quote = current_user.quotes
+    else 
+      @welcome_quote = "Labour was the first price, the original purchase - money that was paid for all things. It was not by gold or by silver, but by labour, that all wealth of the world was originally purchased - Adam Smith"
+    end 
   end 
 
   def about 

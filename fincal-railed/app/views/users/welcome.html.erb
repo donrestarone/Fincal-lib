@@ -15,9 +15,15 @@
 		<p>Special thanks to <a href="https://www.linkedin.com/in/gurjantsadhra/">Gurjant Singh Sadhra</a> for his guidance</p>
 	</div>
 
-	<div>
-		<p class="smithquote">"Labour was the first price, the original purchase - money that was paid for all things. It was not by gold or by silver, but by labour, that all wealth of the world was originally purchased" <span class="adamsmith">- Adam Smith</span></p>
-	</div>
+	<% if current_user %>
+		<div>
+			<p class="quote"><%= @quote %></p>
+		</div>
+	<% else %> 
+		<div>
+			<p class="quote"><%= @welcome_quote %></p>
+		</div>
+	<% end %>
 
 	<div versionupdate>
 		<p>version: <%= @version %></p>
