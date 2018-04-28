@@ -114,22 +114,37 @@ class AccountsController < ApplicationController
 		@selection = params[:user_choice][:choice].to_i
 		case @selection
 			when 1 then @result =  @account.calculate_fv 
-				@calculation_performed = 'computed future value'
+				@calculation_performed = 'computed future value:'
 				
 			when 2 then @result = @account.calculate_pv
-				@calculation_performed = 'computed present value'
+				@calculation_performed = 'computed present value:'
 				
 			when 3 then @result = @account.calculate_fv_annuity
-				@calculation_performed = 'computed future value of the annuity payments'
+				@calculation_performed = 'computed future value of the annuity payments:'
 				
 			when 4 then @result = @account.calculate_pv_annuity
-				@calculation_performed = 'computed present value of the annuity payments'
-				
+				@calculation_performed = 'computed present value of the annuity payments:'
+
+			when 5 then  @result = @account.calculate_interest_rate
+				@calculation_performed = 'computed interest rate earned given the interest portion:'
+			
 		end
 		@interest_time = @account.compounding_periods
 		@frequency = @account.compounding_frequency
 		@interest_portion = @result - account_balance
 	end 
+
+	def real_time_tvom
+		
+	end
+
+	def real_time_tvom_results
+	@interest_portion = params[:compute_interest_rate][:interest_portion]
+		@present_value = params[:compute_interest_rate][:pv]
+		@time_in_days = params[:compute_interest_rate][:time]
+
+		@computation = calculate_interest_rate(@interest_portion, @present_value, @time_in_days)
+	end
 
 	private 
 
