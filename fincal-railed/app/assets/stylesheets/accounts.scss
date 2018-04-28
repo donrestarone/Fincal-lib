@@ -28,11 +28,15 @@
 
 .account {
 	width: 100%;
+	border-style: solid;
+	border-width: 4px;
+	padding: 1%;
 }
 
 .topribbon {
 	font-size: 2em;
 	text-align: center;
+	padding: 1%;
 }
 
 .backbutton a {
@@ -91,4 +95,11 @@
 
 .backtoindex a {
 	font-size: 1.4em;
+}
+
+.newaccountform {
+	font-size: 1.5em;
+}
+.newaccountform p {
+	padding: 1%;
 }
