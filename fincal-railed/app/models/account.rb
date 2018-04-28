@@ -34,8 +34,5 @@ class Account < ApplicationRecord
 		rounded_pv = pv.round(2)
 		return rounded_pv
 	end
-
-	
-
 end
 

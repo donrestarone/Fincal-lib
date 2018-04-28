@@ -129,17 +129,14 @@ h2 {
 	font-size: 1.5em;
 }
 
-.smithquote {
+.quote {
 	font-size: 1.7em;
 	text-align: center;
+	padding: 1%;
 }
 
-.smithquote p {
+.quote p {
 	padding: 2%;
-}
-
-.adamsmith {
-	font-weight: bold;
 }
 
 .versionupdate p {
