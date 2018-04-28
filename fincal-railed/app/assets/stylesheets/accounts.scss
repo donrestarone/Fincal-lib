@@ -1,3 +1,36 @@
 // Place all the styles related to the accounts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.accountname {
+	text-align: left;
+}
+
+.interestrate {
+	font-size: 2em;
+}
+
+.compounding {
+	font-size: 2em;
+}
+
+.lastupdate {
+	font-size: 2em;
+}
+
+.accounttype {
+	font-size: 2em;
+}
+
+.balance {
+	font-size: 2em;
+}
+
+.account {
+	width: 100%;
+}
+
+.topribbon {
+	font-size: 2em;
+	text-align: center;
+}

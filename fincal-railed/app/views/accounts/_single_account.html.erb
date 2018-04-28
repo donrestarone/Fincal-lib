@@ -1,17 +1,17 @@
 <div class="account">
 	
-	<h2>name: <%= link_to an_account.name, users_account_path(an_account) %></h2>
-	<h3>type: <%= an_account.category %></h3>
-	<h4>balance: $<%= an_account.balance %></h4>
+	<h2 class="accountname">name: <%= link_to an_account.name, users_account_path(an_account) %></h2>
+	<h3 class="accounttype">type: <%= an_account.category %></h3>
+	<h4 class="balance">balance: $<%= an_account.balance %></h4>
 	<br>
-	<strong>
+	<strong class="interestrate">
 		Interest rate: <%= an_account.interest %>%
 			
 	</strong>
-	<h5>
+	<h5 class="compounding">
 		compounding frequency: <%= an_account.compounding_frequency%> |
 		periods: <%= an_account.compounding_periods %>
 	</h5>
-	<p>last updated on: <%= an_account.updated_at.strftime("%Y-%m-%d") %> </p>
+	<p class="lastupdate">last updated on: <%= an_account.updated_at.strftime("%Y-%m-%d") %> </p>
 </div>
 
