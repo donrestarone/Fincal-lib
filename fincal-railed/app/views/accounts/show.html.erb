@@ -4,7 +4,7 @@
 </div>
 <%= render 'single_account', an_account: @account %> 
 
-<div>
+<div class="accountcontrol">
 	<%= link_to 'Edit', edit_users_account_path %> 
 	<%= link_to 'Delete Account', users_account_path(@account), method: :delete, data: {confirm: "are you sure you want to del2ete this '#{@account.category}' account?"} %>
 </div>

@@ -87,8 +87,8 @@ h2 {
 .actionheader {
 	font-size: 1.6em;
 	margin: auto;
-	width: 80%;
-	display: inline;
+	width: 100%;
+	display: inline-block;
 }
 .usergreeting {
 	text-align: center;
@@ -108,12 +108,12 @@ h2 {
 .newandlogin {
 	float: right;
 	display: inline-block;
-	width: 8%;
+	width: ;
 
 }
 
 .newandlogin p {
-	padding: 2%;
+	padding: 1%;
 }
 
 .accountslink {
@@ -161,4 +161,5 @@ a {
 .aboutbutton {
 	padding: 1%;
 	font-size: 1.5em;
+	float: left;
 }
