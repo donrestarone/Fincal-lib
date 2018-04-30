@@ -31,7 +31,7 @@ class User < ApplicationRecord
     def self.quotes
     	quotes = ["Labour was the first price, the original purchase - money that was paid for all things. It was not by gold or by silver, but by labour, that all wealth of the world was originally purchased - Adam Smith", 
     		"Science is the great antidote to the poison of enthusiasm and superstition - Adam Smith", "Science is the great antidote to the poison of enthusiasm and superstition - Adam Smith", 
-    		"This is one of those cases in which the imagination is baffled by the facts - Adam Smith", 
+    		"This is one  ofthose cases in which the imagination is baffled by the facts - Adam Smith", 
     		"Capitalism is the astounding belief that the most wickedest of men will do the most wickedest of things for the greatest good of everyone - John Maynard Keynes", 
     		"By a continuing process of inflation, government can confiscate, secretly and unobserved, an important part of the wealth of their citizens - John Maynard Keynes", 
     		"The only relevant test of the validity of a hypothesis is comparison of prediction with experience.- Milton Friedman"]
