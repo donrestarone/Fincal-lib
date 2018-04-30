@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   # Make Sure user is logged in
   before_action :require_login, only: %i(profile update changePassword)
-
+  before_action :already_logged_in, only: %i(new login)
   def profile
     @user = current_user
   end

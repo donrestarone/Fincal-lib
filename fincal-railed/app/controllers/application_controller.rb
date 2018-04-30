@@ -12,6 +12,12 @@ class ApplicationController < ActionController::Base
   	end
   end
 
+  def already_logged_in
+    if session[:user_id] != nil
+      redirect_to root_path 
+    end 
+  end 
+
   def welcome 
     @title = 'Fincal'
     @date = Time.now.strftime("%A-%B-%d-%Y")
@@ -19,11 +25,9 @@ class ApplicationController < ActionController::Base
     @version = 0.60
     @update_date = "Saturday/April/28/2018"
     
-    if current_user
-      @quote = current_user.quotes
-    else 
-      @welcome_quote = "Labour was the first price, the original purchase - money that was paid for all things. It was not by gold or by silver, but by labour, that all wealth of the world was originally purchased - Adam Smith"
-    end 
+   
+    @welcome_quote = User.quotes
+  
   end 
 
    helper_method :current_user
