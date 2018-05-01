@@ -6,6 +6,8 @@
 	<%= link_to raw("&#x2690;Fincal Home&#x2690;"), root_path %>
 	<%= link_to raw("&#x24;Time Value of Money&#x24;"), tvom_path%>
 </div>
+<div class="accountsblock">
 <% @accounts.each do |account| %> 
 	<%= render 'single_account', an_account: account %>
 <% end %>
+</div>

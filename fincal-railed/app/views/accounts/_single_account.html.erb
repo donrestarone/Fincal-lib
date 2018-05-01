@@ -16,5 +16,5 @@
 </div>
 
 <% if params[:id] %>
-	<%= render 'quote', quote: current_user.quotes %>
+	<%= render 'quote', quote: User.quotes %>
 <% end %>

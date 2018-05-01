@@ -77,3 +77,23 @@ def calculate_fv(interest, compounding_periods, compounding_frequency, present_v
 calculate_pv_annuity(pmt, int, periods, 12 )
 
 
+
+
+	#testing common factor method 
+def interest_factor(interest, compounding_frequency)	#refactor this to use the method below
+	interest_factor = (1 + (interest.to_f / 100) / compounding_frequency)
+	return interest_factor
+end 
+
+
+def interest_decimal(interest, compounding_frequency)
+	decimal = (interest.to_f / 100) / compounding_frequency
+	return decimal
+end
+
+def rounder(value)
+	rounded_value = value.round(2)
+	return rounded_value
+end
+
+

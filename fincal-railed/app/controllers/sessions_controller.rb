@@ -1,8 +1,9 @@
 class SessionsController < ApplicationController
+	before_action :already_logged_in, only: %i(new)
 	
-	def new
+  def new
 
-  	end
+  end
 
   # def create
   # 	u = User.find_by(email: params[:session][:email])

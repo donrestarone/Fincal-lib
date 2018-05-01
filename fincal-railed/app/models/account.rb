@@ -34,5 +34,12 @@ class Account < ApplicationRecord
 		rounded_pv = pv.round(2)
 		return rounded_pv
 	end
+
+	def calculate_interest_rate 
+		rate = interest / (balance * compounding_periods / compounding_frequency) 
+		converted_rate = rate * 100
+		rounded_rate = converted_rate.round(3)
+		return rounded_rate
+	end 
 end
 
