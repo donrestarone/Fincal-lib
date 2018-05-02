@@ -10,8 +10,9 @@
 	 <%= f.select :choice, [['Calculate future value', 1],['Calculate present value', 2],['calculate future value annuity',3],['Calculate present value annuity', 4], ['calculate interest rate', 5]] %>
 	 <%= f.submit 'Calculate' %>
 </div>
-
- <br>
+<div class="realtimecalculations">
+	<%= link_to 'Calculate In Real Time', real_time_tvom_path %>
+</div>
  <br>
 <h2 class="tvomcalculationheading">Possible calculations</h2>
  	<ul>
@@ -26,9 +27,7 @@
  	</ul>
 <% end %> 
 
-<div>
-	<%= link_to 'Real Time Calculations', real_time_tvom_path %>
-</div>
+
 
 <div class="tvomupgradewrapper">
 	<h3 class="tvomupgrades">Future upgrades</h3>
