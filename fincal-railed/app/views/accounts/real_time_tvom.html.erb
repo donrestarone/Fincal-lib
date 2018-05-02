@@ -8,3 +8,15 @@ present value: <%= f.number_field :pv %> <br>
 time in days: <%= f.number_field :time %>
 <%= f.submit "Compute interest rate" %> 
 <% end %>
+<br>
+<br>
+
+<h3>Given interest rate and future value, calculate size of annuity payment needed to accumulate that future sum </h3>
+
+<%= form_for :compute_annuity_payment, url:real_time_tvom_results_path do |f| %>
+Interest Rate: <%= f.number_field :interest_rate %> <br>
+Compounding Frequency: <%= f.number_field :compounding_frequency %><br>
+Compounding Periods: <%= f.number_field :compounding_periods %><br>
+Future Value: <%= f.number_field :fv %> 
+<%= f.submit "Compute interest rate" %> 
+<% end %>

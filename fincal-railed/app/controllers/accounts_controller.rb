@@ -41,36 +41,13 @@ class AccountsController < ApplicationController
 	end 
 
 	def show 
-		# owner_id = (params[:id])
-		# the_account = Account.find(owner_id)
-		# #if the_account != true
-		# 	if the_account.user_id == current_user.id
-			
-			# 	@account = Account.find(params[:id])
-			# 	@title = @account.name
-			
-			# else 
-			# redirect_to users_accounts_path
-			# end 
-		#else 
-			#redirect_to users_accounts_path
-		#end 
-
-		#@account = Account.find(params[:id])
-		#the above code is problematic. need to implement something like this vv 
-		#@account = current_user.accounts
-		@creation_date = @account.created_at.strftime("%A-%Y-%B-%d")
-		#@last_updated = @account.updated_at.strftime("%Y-%m-%d")
 		
-
-		#@creation_date = @account.created_at
+		@creation_date = @account.created_at.strftime("%A-%Y-%B-%d")
+		
 		
 	end 
 
 	def update
-
-		#need to update this method, this is faulty as well. 
-		#@account = Account.find(params[:id])
 
 		@account.name = params[:account][:name]
 		@account.category = params[:account][:category]
@@ -81,16 +58,12 @@ class AccountsController < ApplicationController
 
 		if @account.save
 			redirect_to users_accounts_path
-			#'users/accounts'
 		else 
 			render :new
 		end 
 	end 
 
 	def destroy
-
-		#and this as well. 
-		#@account = Account.find(params[:id])
 		@account.destroy
 		redirect_to users_accounts_path
 	end 
@@ -105,11 +78,6 @@ class AccountsController < ApplicationController
 		#finds the account that the person chooses in the form from params
 		@account = current_user.accounts.find(params[:user_choice][:account])
 		account_balance = @account.balance
-		
-
-		
-
-
 		#assigns the value that the user chooses for the function they want to invoke on the account
 		@selection = params[:user_choice][:choice].to_i
 		case @selection
@@ -140,11 +108,21 @@ class AccountsController < ApplicationController
 
 	def real_time_tvom_results
 		@real_time_account = Account.new 
-		@real_time_account.interest = params[:compute_interest_rate][:interest_portion]
-		@real_time_account.balance = params[:compute_interest_rate][:pv]
-		@real_time_account.compounding_periods = params[:compute_interest_rate][:time]
 
-		@computation = @real_time_account.calculate_simple_interest_rate
+		if params[:compute_interest_rate]
+			@real_time_account.interest = params[:compute_interest_rate][:interest_portion]
+			@real_time_account.balance = params[:compute_interest_rate][:pv]
+			@real_time_account.compounding_periods = params[:compute_interest_rate][:time]
+			@computation = @real_time_account.calculate_simple_interest_rate
+		end
+
+		if params[:compute_annuity_payment]
+		@real_time_account.interest = params[:compute_annuity_payment][:interest_rate]
+		@real_time_account.compounding_frequency = params[:compute_annuity_payment][:compounding_frequency]
+		@real_time_account.compounding_periods = params[:compute_annuity_payment][:compounding_periods]
+		@real_time_account.balance = params[:compute_annuity_payment][:fv]
+		@computation = @real_time_account.size_of_annuity_payment
+		end
 	end
 
 	private 
@@ -153,10 +131,8 @@ class AccountsController < ApplicationController
 		owner_id = params[:id]
 		the_account = Account.find(owner_id)
 		if the_account.user == current_user
-			
 				@account = Account.find(params[:id])
 				@title = @account.name
-			
 		else 
 			redirect_to users_accounts_path
 		end 
