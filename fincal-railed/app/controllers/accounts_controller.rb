@@ -139,11 +139,12 @@ class AccountsController < ApplicationController
 	end
 
 	def real_time_tvom_results
-	@interest_portion = params[:compute_interest_rate][:interest_portion]
-		@present_value = params[:compute_interest_rate][:pv]
-		@time_in_days = params[:compute_interest_rate][:time]
+		@real_time_account = Account.new 
+		@real_time_account.interest = params[:compute_interest_rate][:interest_portion]
+		@real_time_account.balance = params[:compute_interest_rate][:pv]
+		@real_time_account.compounding_periods = params[:compute_interest_rate][:time]
 
-		@computation = calculate_interest_rate(@interest_portion, @present_value, @time_in_days)
+		@computation = @real_time_account.calculate_simple_interest_rate
 	end
 
 	private 

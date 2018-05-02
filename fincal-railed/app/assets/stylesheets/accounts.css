@@ -114,6 +114,12 @@
 		padding: 1%;
 	}
 
+	.realtimecalculations {
+		text-align: center;
+		font-size: 1.5em;
+		
+		text-decoration-style: none;
+	}
 
 
 @media only screen and (max-width: 1000px){

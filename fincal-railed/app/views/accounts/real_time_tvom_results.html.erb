@@ -1,1 +1,10 @@
 <h2>results</h2>
+<div class="tvomfinalresult">
+	<p>
+	<%= @computation %>% interest earned in <%= @real_time_account.compounding_periods %> days
+	</p>
+	
+	<p>
+	where Present Value was	$<%= @real_time_account.balance %>
+	</p>
+</div>
