@@ -43,9 +43,7 @@ class Account < ApplicationRecord
 
 	def size_of_annuity_payment
 		interest_decimalized = interest.to_f / 100
-
 		interest_equalized = interest_decimalized / compounding_frequency
-		
 		interest_factor = (1 + interest_equalized) ** compounding_periods 
 		interest_factor_minus_one = interest_factor.to_f - 1
 		denominator = interest_factor_minus_one / interest_equalized.to_f
