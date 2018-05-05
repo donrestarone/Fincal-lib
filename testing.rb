@@ -35,6 +35,16 @@ def calculate_fv(interest, compounding_periods, compounding_frequency, present_v
 		p pv
 	end
 
+	def size_of_annuity_payment(balance, interest, compounding_frequency, compounding_periods)
+		interest_decimalized = interest.to_f / 100
+		interest_equalized = interest_decimalized / compounding_frequency
+		interest_factor = (1 + interest_equalized) ** compounding_periods 
+		interest_factor_minus_one = interest_factor.to_f - 1
+		denominator = interest_factor_minus_one / interest_equalized.to_f
+		numerator = balance / denominator
+		rounded_annuity = numerator.round(2)
+	end
+
 
 	#testing 
 #test calculate_fv method. this works
@@ -71,12 +81,12 @@ def calculate_fv(interest, compounding_periods, compounding_frequency, present_v
 
 
 	#test calculate_pv_annuity
-	int = 11
-	pmt = 10000
-	periods = 2
-calculate_pv_annuity(pmt, int, periods, 12 )
+# 	int = 11
+# 	pmt = 10000
+# 	periods = 2
+# calculate_pv_annuity(pmt, int, periods, 12 )
 
-
+p size_of_annuity_payment(7000, 9, 2, 16)
 
 
 	#testing common factor method 

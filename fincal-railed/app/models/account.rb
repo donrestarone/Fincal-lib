@@ -16,7 +16,6 @@ class Account < ApplicationRecord
 		pv = (balance) / interest_factor ** compounding_periods
 		rounded_pv = pv.round(2)
 		return rounded_pv
-		
 	end
 
 	def calculate_fv_annuity  
@@ -41,5 +40,16 @@ class Account < ApplicationRecord
 		rounded_rate = converted_rate.round(2)
 		return rounded_rate
 	end 
+
+	def size_of_annuity_payment
+		interest_decimalized = interest.to_f / 100
+		interest_equalized = interest_decimalized / compounding_frequency
+		interest_factor = (1 + interest_equalized) ** compounding_periods 
+		interest_factor_minus_one = interest_factor.to_f - 1
+		denominator = interest_factor_minus_one / interest_equalized.to_f
+		numerator = balance / denominator
+		rounded_annuity = numerator.round(2)
+	end
+	
 end
 

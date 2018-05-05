@@ -1,8 +1,3 @@
-<div class="backbutton">
-	<%= link_to 'back to accounts', users_accounts_path %> 
-</div>
-
-
 <h1> Calculate Time Value For Your Accounts</h1>
 <div class="tvomchoices">
 	<%= form_for :user_choice, url: tvom_choice_path  do |f|%>
@@ -11,7 +6,7 @@
 	 <%= f.submit 'Calculate' %>
 </div>
 <div class="realtimecalculations">
-	<%= link_to 'Calculate In Real Time', real_time_tvom_path %>
+	<%= link_to 'Real Time Interest Calculations', real_time_tvom_path %>
 </div>
  <br>
 <h2 class="tvomcalculationheading">Possible calculations</h2>
@@ -25,7 +20,7 @@
  		<li class="calculationinfo">Present Value Annuity</li>
  			<p class="calculationpara">Given equal monthly payments to be made in the future calculate the present value of a series of annuity payments by discounting interest. Annuity payment value is derived from the balance in the account.</p>
  	</ul>
-<% end %> 
+<% end %>
 
 
 
@@ -36,4 +31,3 @@
 			<li class="tvomupgradeinfo">Make projections without creating accounts</li>
 		</ul>
 </div>
-
