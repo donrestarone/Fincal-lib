@@ -139,10 +139,12 @@
 		overflow: hidden;
 		  background-color: white;
 		  position: fixed;
+      left: -18px;
 		  bottom: 0;
 		  width: 100%;
 		  font-size: 3em;
 		  text-align: center;
+      margin: auto
 	}
 
 /*

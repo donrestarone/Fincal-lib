@@ -69,6 +69,10 @@ table {
 		background-color: #ACF0FF;
 	}
 
+  body {
+    margin: 45px;
+  }
+
 
 	h1 {
 		color: #D439FF;
