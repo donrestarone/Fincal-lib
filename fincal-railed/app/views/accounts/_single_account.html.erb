@@ -1,20 +1,45 @@
-<div class="account">
-	
-	<h2 class="accountname">name: <%= link_to an_account.name, users_account_path(an_account) %></h2>
-	<h3 class="accounttype">type: <%= an_account.category %></h3>
-	<h4 class="balance">balance: $<%= number_with_delimiter(an_account.balance, :delimiter => ',') %></h4>
-	<br>
-	<strong class="interestrate">
-		Interest rate: <%= an_account.interest %>%
-			
-	</strong>
-	<h5 class="compounding">
-		compounding frequency: <%= an_account.compounding_frequency%> |
-		periods: <%= an_account.compounding_periods %>
-	</h5>
-	<p class="lastupdate">last updated on: <%= an_account.updated_at.strftime("%Y-%m-%d") %> </p>
-</div>
+<% if style > 0 %>
+  <div class="full_view_account">
+    <h2 class="accountname">name: <%= link_to an_account.name, users_account_path(an_account) %></h2>
+    <h3 class="accounttype">type: <%= an_account.category %></h3>
+    <h4 class="balance">balance: $<%= number_with_delimiter(an_account.balance, :delimiter => ',') %></h4>
+    <br>
+    <strong class="interestrate">
+      Interest rate: <%= an_account.interest %>%
 
+    </strong>
+    <h5 class="compounding">
+      compounding frequency: <%= an_account.compounding_frequency%> |
+      periods: <%= an_account.compounding_periods %>
+    </h5>
+    <p class="lastupdate">last updated on: <%= an_account.updated_at.strftime("%Y-%m-%d") %> </p>
+    <div class="accountcontrol">
+      <%= link_to 'Edit', edit_users_account_path %>
+      <%= link_to 'Delete Account', users_account_path(@account), method: :delete, data: {confirm: "are you sure you want to delete this '#{@account.category}' account?"} %>
+    </div>
+  </div>
+<% else %>
+
+  <div class="account">
+
+  	<h2 class="accountname"><%= link_to an_account.name, users_account_path(an_account) %></h2>
+  	<h3 class="accounttype">type: <%= an_account.category %></h3>
+  	<h4 class="balance">balance: $<%= number_with_delimiter(an_account.balance, :delimiter => ',') %></h4>
+  	<br>
+  	<strong class="interestrate">
+  		Interest rate: <%= an_account.interest %>%
+
+  	</strong>
+  	<h5 class="compounding">
+  		compounding frequency: <%= an_account.compounding_frequency%> |
+  		periods: <%= an_account.compounding_periods %>
+  	</h5>
+  	<p class="lastupdate">last updated on: <%= an_account.updated_at.strftime("%Y-%m-%d") %> </p>
+  </div>
+
+
+
+<% end %>
 <% if params[:id] %>
-	<%= render 'quote', quote: User.quotes %>
+ <%= render 'quote', quote: User.quotes %>
 <% end %>
