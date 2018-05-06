@@ -1,22 +1,25 @@
 <h2>Calculate In Real Time</h2>
 
-<h3>Given interest portion, calculate interest rate earned over a given period</h3>
-
-<%= form_for :compute_interest_rate,   url:real_time_tvom_results_path do |f| %>
-Interest earned in dollars: <%= f.number_field :interest_portion %> <br>
-present value: <%= f.number_field :pv %> <br>
-time in days: <%= f.number_field :time %>
-<%= f.submit "Compute interest rate" %>
-<% end %>
+<h3 class="calculationinfo">Given interest portion, calculate interest rate earned over a given period</h3>
+<div class="">
+  <%= form_for :compute_interest_rate,   url:real_time_tvom_results_path do |f| %>
+  Interest earned in dollars: <%= f.number_field :interest_portion %> <br>
+  present value: <%= f.number_field :pv %> <br>
+  time in days: <%= f.number_field :time %>
+  <%= f.submit "Compute interest rate" %>
+  <% end %>
+</div>
 <br>
 <br>
 
-<h3>Given interest rate and future value, calculate size of annuity payment needed to accumulate that future sum </h3>
+<h3 class="calculationinfo">Given interest rate and future value, calculate size of annuity payment needed to accumulate that future sum </h3>
 
-<%= form_for :compute_annuity_payment, url:real_time_tvom_results_path do |f| %>
-Interest Rate: <%= f.number_field :interest_rate %> <br>
-Compounding Frequency: <%= f.number_field :compounding_frequency %><br>
-Compounding Periods: <%= f.number_field :compounding_periods %><br>
-Future Value: <%= f.number_field :fv %>
-<%= f.submit "Compute interest rate" %>
-<% end %>
+<div class="">
+  <%= form_for :compute_annuity_payment, url:real_time_tvom_results_path do |f| %>
+  Interest Rate: <%= f.number_field :interest_rate %> <br>
+  Compounding Frequency: <%= f.number_field :compounding_frequency %><br>
+  Compounding Periods: <%= f.number_field :compounding_periods %><br>
+  Future Value: <%= f.number_field :fv %>
+  <%= f.submit "Compute interest rate" %>
+  <% end %>
+</div>

@@ -12,7 +12,7 @@
 <% else %>
   <div class="tvomfinalresult">
     <p>
-      if you save $<%= @computation %> once every period for <%= @real_time_account.compounding_periods %> periods you will accumulate <%= @real_time_account.balance %>
+      Given a time value of <%= @real_time_account.interest %>% interest, if you save $<%= @computation %> once every period for <%= @real_time_account.compounding_periods %> periods you will accumulate $<%= number_with_delimiter(@real_time_account.balance, :delimiter => ',') %>
   </p>
   </div>
 <% end %>
