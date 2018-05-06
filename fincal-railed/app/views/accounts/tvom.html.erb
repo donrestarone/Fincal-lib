@@ -2,7 +2,7 @@
 <div class="tvomchoices">
 	<%= form_for :user_choice, url: tvom_choice_path  do |f|%>
 	<%= f.collection_select(:account,@accounts.all, :id, :name ) %>
-	 <%= f.select :choice, [['Calculate future value', 1],['Calculate present value', 2],['calculate future value annuity',3],['Calculate present value annuity', 4], ['calculate interest rate', 5]] %>
+	 <%= f.select :choice, [['Calculate future value', 1],['Calculate present value', 2],['calculate future value annuity',3],['Calculate present value annuity', 4]] %>
 	 <%= f.submit 'Calculate' %>
 </div>
 <div class="realtimecalculations">

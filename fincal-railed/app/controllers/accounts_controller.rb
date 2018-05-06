@@ -1,7 +1,7 @@
 class AccountsController < ApplicationController
 	before_action :require_login
 	before_action :require_ownership, only: [:show, :edit, :update, :destroy]
-	
+
 	def index
 		unless current_user
 			flash[:warning] = "sign up to add an account"
@@ -9,8 +9,8 @@ class AccountsController < ApplicationController
 		@accounts = current_user.accounts
 
 		@title = 'All Accounts'
-		render :index 
-	end 
+		render :index
+	end
 
 	def create
 		@title = 'Create New Account'
@@ -22,30 +22,30 @@ class AccountsController < ApplicationController
 		@account.interest = params[:account][:interest]
 		@account.compounding_frequency = params[:account][:compounding_frequency]
 		@account.compounding_periods = params[:account][:compounding_periods]
-		
+
 		if @account.save
 			redirect_to users_accounts_path
-		else 
+		else
 			render :new
 		end
-	end 
+	end
 
-	def new 
+	def new
 		@title = 'Create New Account'
-		@account = Account.new 
-	end 
+		@account = Account.new
+	end
 
 	def edit
 		id = params[:id]
 		@account = Account.find(id)
-	end 
+	end
 
-	def show 
-		
+	def show
+
 		@creation_date = @account.created_at.strftime("%A-%Y-%B-%d")
-		
-		
-	end 
+
+
+	end
 
 	def update
 
@@ -58,20 +58,20 @@ class AccountsController < ApplicationController
 
 		if @account.save
 			redirect_to users_accounts_path
-		else 
+		else
 			render :new
-		end 
-	end 
+		end
+	end
 
 	def destroy
 		@account.destroy
 		redirect_to users_accounts_path
-	end 
+	end
 
-	def tvom 
+	def tvom
 		@accounts = current_user.accounts
 		render :tvom
-	end 
+	end
 
 	def tvom_results
 		@result = "you typed the wrong selection"
@@ -81,33 +81,29 @@ class AccountsController < ApplicationController
 		#assigns the value that the user chooses for the function they want to invoke on the account
 		@selection = params[:user_choice][:choice].to_i
 		case @selection
-			when 1 then @result =  @account.calculate_fv 
+			when 1 then @result =  @account.calculate_fv
 				@calculation_performed = 'computed future value:'
-				
+
 			when 2 then @result = @account.calculate_pv
 				@calculation_performed = 'computed present value:'
-				
+
 			when 3 then @result = @account.calculate_fv_annuity
 				@calculation_performed = 'computed future value of the annuity payments:'
-				
+
 			when 4 then @result = @account.calculate_pv_annuity
 				@calculation_performed = 'computed present value of the annuity payments:'
-
-			when 5 then  @result = @account.calculate_interest_rate
-				@calculation_performed = 'computed interest rate earned given the interest portion:'
-			
 		end
 		@interest_time = @account.compounding_periods
 		@frequency = @account.compounding_frequency
 		@interest_portion = @result - account_balance
-	end 
+	end
 
 	def real_time_tvom
-		
+
 	end
 
 	def real_time_tvom_results
-		@real_time_account = Account.new 
+		@real_time_account = Account.new
 
 		if params[:compute_interest_rate]
 			@real_time_account.interest = params[:compute_interest_rate][:interest_portion]
@@ -125,7 +121,7 @@ class AccountsController < ApplicationController
 		end
 	end
 
-	private 
+	private
 
 	def require_ownership
 		owner_id = params[:id]
@@ -133,8 +129,8 @@ class AccountsController < ApplicationController
 		if the_account.user == current_user
 				@account = Account.find(params[:id])
 				@title = @account.name
-		else 
+		else
 			redirect_to users_accounts_path
-		end 
+		end
 	end
 end
