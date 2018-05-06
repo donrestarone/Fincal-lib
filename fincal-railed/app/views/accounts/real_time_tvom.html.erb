@@ -2,11 +2,11 @@
 
 <h3>Given interest portion, calculate interest rate earned over a given period</h3>
 
-<%= form_for :compute_interest_rate, url:real_time_tvom_results_path do |f| %>
+<%= form_for :compute_interest_rate,   url:real_time_tvom_results_path do |f| %>
 Interest earned in dollars: <%= f.number_field :interest_portion %> <br>
 present value: <%= f.number_field :pv %> <br>
 time in days: <%= f.number_field :time %>
-<%= f.submit "Compute interest rate" %> 
+<%= f.submit "Compute interest rate" %>
 <% end %>
 <br>
 <br>
@@ -17,6 +17,6 @@ time in days: <%= f.number_field :time %>
 Interest Rate: <%= f.number_field :interest_rate %> <br>
 Compounding Frequency: <%= f.number_field :compounding_frequency %><br>
 Compounding Periods: <%= f.number_field :compounding_periods %><br>
-Future Value: <%= f.number_field :fv %> 
-<%= f.submit "Compute interest rate" %> 
+Future Value: <%= f.number_field :fv %>
+<%= f.submit "Compute interest rate" %>
 <% end %>
