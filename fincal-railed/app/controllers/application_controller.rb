@@ -14,32 +14,32 @@ class ApplicationController < ActionController::Base
 
   def already_logged_in
     if session[:user_id] != nil
-      redirect_to root_path 
-    end 
-  end 
+      redirect_to root_path
+    end
+  end
 
-  def welcome 
+  def welcome
     @title = 'Fincal'
     @date = Time.now.strftime("%A-%B-%d-%Y")
     @dev = "Shashike J"
-    @version = 0.60
-    @update_date = "Saturday/April/28/2018"
-    
-   
+    @version = 0.85
+    @update_date = "Sunday/May/5/2018"
+
+
     @welcome_quote = User.quotes
-  
-  end 
+
+  end
 
    helper_method :current_user
 
 
 private
 
-    def current_user 
+    def current_user
     user_id = session[:user_id]
 
-    #makes sure if user_id exists. 
+    #makes sure if user_id exists.
     user_id && User.find(user_id)
-  end 
+  end
 
 end
