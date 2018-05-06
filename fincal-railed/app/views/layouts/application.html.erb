@@ -9,7 +9,9 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <h1>MyFinCal</h1>
+  <h1>
+    <%= link_to "MyFincal", root_path %>
+  </h1>
   <header class="actionheader">
         <% if current_user %>
 
@@ -21,7 +23,6 @@
           </div>
           <div class="topribbon">
             	<%= link_to raw("&#x2655;Accounts&#x2655;"), users_accounts_path %>
-          	 <%= link_to raw("&#x2690;Home&#x2690;"), root_path %>
           	<%= link_to raw("&#x24;Time Value of Money&#x24;"), tvom_path%>
             <%= link_to raw('&#x029C0;about&#x029C1;'), about_path %>
           </div>
