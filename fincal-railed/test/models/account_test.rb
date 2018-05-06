@@ -6,6 +6,16 @@ class AccountTest < ActiveSupport::TestCase
     assert_equal(1254.40, account.calculate_fv)
   end
 
+  test 'calculate_fv_when_int_compounded_daily' do
+    account = create_fv_account_compounding_daily
+    assert_equal(5126.50, account.calculate_fv)
+  end
+
+  test 'calculate_pv_when_int_compounded_monthly' do
+    account = create_pv_account_compounding_monthly
+    assert_equal(54963.27, account.calculate_pv)
+  end
+
   test 'calculate_pv_returns_19304.59' do
     account = create_deferred_payment_to_calculate_present_value
     assert_equal(19304.59, account.calculate_pv)
@@ -29,6 +39,26 @@ class AccountTest < ActiveSupport::TestCase
   test 'size_of_annuity_payment_returns_308.11' do
     account = create_sinking_fund_annuity_account
     assert_equal(308.11, account.calculate_size_of_annuity_payment)
+  end
+
+  def create_pv_account_compounding_monthly
+    new_account = Account.new(name: 'IOU',
+                              category: 'deferred',
+                              balance: 100000,
+                              interest: 6,
+                              compounding_frequency: 12,
+                              compounding_periods: 120)
+    return new_account
+  end
+
+  def create_fv_account_compounding_daily
+    new_account = Account.new(name: 'IOU',
+                              category: 'deferred',
+                              balance: 5000,
+                              interest: 4,
+                              compounding_frequency: 365,
+                              compounding_periods: 228)
+    return new_account
   end
 
   def create_sinking_fund_annuity_account
