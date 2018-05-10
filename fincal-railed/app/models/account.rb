@@ -5,8 +5,7 @@ class Account < ApplicationRecord
 	validates :category, presence: true
 
 	def calculate_fv
-		fv = balance * interest_factor(interest, compounding_frequency) ** compounding_periods
-		return rounder(fv)
+		rounder(balance * interest_factor(interest, compounding_frequency) ** compounding_periods)
 	end
 
 	def calculate_pv
@@ -36,12 +35,6 @@ class Account < ApplicationRecord
 		denominator = interest_factor_minus_one / interest_equalized.to_f
 		numerator = balance / denominator
 		return rounder(numerator)
-	end
-
-
-	def self.compute_coinmarketcap_response(coins)
-		
-
 	end
 
 	private

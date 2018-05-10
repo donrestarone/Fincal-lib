@@ -64,5 +64,50 @@ def coinmarketcap_api_call
 	end
 end
 
-p coinmarketcap_api_call
+def find_coin(coin_name)
+	coins = coinmarketcap_api_call
+
+	coins.each do |coin|
+		if coin['name'] == coin_name.capitalize
+			pass_coin_info(coin)
+		else
+			return false
+		end
+	end
+end
+
+
+def rounder(value)
+	rounded_value = value.round(2)
+	return rounded_value
+end
+
+
+def find_delta(price, percent_change)
+		delta = price / 100 * percent_change
+		if rounder(delta) < 0
+			calculate_interest_discounted(rounder(delta), price)
+		else 
+			calculate_interest_earned(rounder(delta))
+		end
+end
+
+def calculate_interest_discounted(interest, present_value)
+	rate = interest / (present_value * 1 / 365) * 100
+	return rounder(rate)
+end
+
+
+
+def pass_coin_info(coin)
+	#p coin["percent_change_24h"]
+	price = coin["price"]
+	a24h_delta = coin["percent_change_24h"]
+	a7d_delta = coin["percent_change_7_days"]
+	find_delta(price, a24h_delta)
+end
+
+find_coin('Bitcoin')
+
+
 

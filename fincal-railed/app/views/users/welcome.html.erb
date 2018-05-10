@@ -26,10 +26,15 @@
 			<% @coins.each do |coin| %>
 				<li>
 					<p>
-						name: <%= coin['name'] %>
+						<div>
+						<%= coin['name'] %>
+						</div>
 						price: <%= coin['price'] %>
-						% change in 24h<%= coin['percent_change_24h'] %>
-						% change in 7 days<%= coin['percent_change_7_days'] %>
+
+						% change in 24h <%= coin['percent_change_24h'] %>
+						% change in 7 days <%= coin['percent_change_7_days'] %>
+						earned an equivalent rate: <%= coin['equivalent_rate'] %>% in 24 hours
+						
 					</p>
 				</li>
 			<% end %>

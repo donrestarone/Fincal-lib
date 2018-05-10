@@ -109,7 +109,23 @@ end
 
 
 def find_delta(price, percent_change)
-	price_in_past = price * (1 + percent_change)
+	delta = price / 100 * percent_change
+		if rounder(delta) < 0
+			calculate_interest_discounted(rounder(delta))
+		else 
+			calculate_interest_earned(rounder(delta))
+		end
 end
+
+def calculate_interest_earned(interest, present_value, days)
+	rate = interest / (present_value * compounding_periods / 365) * 100
+	return rounder(rate)
+end
+
+p find_delta(9134.86, -1.84)
+
+
+
+
 
 
