@@ -39,7 +39,10 @@
 		border-width: 4px;
 		padding: 0;
 	}
-
+	.addnewaccount{
+		font-size: 2em;
+		text-align: center;
+	}
 	.topribbon {
 		font-size: 2em;
 		text-align: center;
