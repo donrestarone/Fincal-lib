@@ -6,49 +6,40 @@ class Account < ApplicationRecord
 
 	def calculate_fv
 		fv = balance * interest_factor(interest, compounding_frequency) ** compounding_periods
-		rounded_fv = fv.round(2)
-		return rounded_fv
+		return rounder(fv)
 	end
 
 	def calculate_pv
 		pv = (balance) / interest_factor(interest, compounding_frequency) ** compounding_periods
-		rounded_pv = pv.round(2)
-		return rounded_pv
+		return rounder(pv)
 	end
 
 	def calculate_fv_annuity
 		fv = balance * (interest_factor(interest, compounding_frequency) ** compounding_periods - 1) / interest_decimal(interest, compounding_frequency)
-		rounded_fv = fv.round(2)
-		return rounded_fv
+		return rounder(fv)
 	end
 
 	def calculate_pv_annuity
-		interest_factor = ( 1 + (interest.to_f / 100) / compounding_frequency ) ** compounding_periods
-		pv = balance * ( (1 - (1 / interest_factor) ) / interest_decimal(interest, compounding_frequency))
-		rounded_pv = pv.round(2)
-		return rounded_pv
+		pv = balance * ( (1 - (1 / interest_factor(interest, compounding_frequency) ** compounding_periods) ) / interest_decimal(interest, compounding_frequency))
+		return rounder(pv)
 	end
 
 	def calculate_simple_interest_rate
-		rate = interest / (balance * compounding_periods / 365)
-		converted_rate = rate * 100
-		rounded_rate = converted_rate.round(2)
-		return rounded_rate
+		rate = interest / (balance * compounding_periods / 365) * 100
+		return rounder(rate)
 	end
 
 	def calculate_size_of_annuity_payment
-		interest_decimalized = interest.to_f / 100
-		interest_equalized = interest_decimalized / compounding_frequency
+		interest_equalized = convert_interest_rate_to_decimal(interest) / compounding_frequency
 		interest_factor = (1 + interest_equalized) ** compounding_periods
 		interest_factor_minus_one = interest_factor.to_f - 1
 		denominator = interest_factor_minus_one / interest_equalized.to_f
 		numerator = balance / denominator
-		rounded_annuity = numerator.round(2)
+		return rounder(numerator)
 	end
 
 	private
-
-	def interest_factor(interest, compounding_frequency)	#refactor this to use the method below
+	def interest_factor(interest, compounding_frequency)
 		interest_factor = (1 + (interest.to_f / 100) / compounding_frequency)
 		return interest_factor
 	end
@@ -58,4 +49,12 @@ class Account < ApplicationRecord
 		return decimal
 	end
 
+	def rounder(value)
+		rounded_value = value.round(2)
+		return rounded_value
+	end
+
+	def convert_interest_rate_to_decimal(interest)
+		return interest.to_f / 100
+	end
 end
