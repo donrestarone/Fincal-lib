@@ -24,10 +24,11 @@ class ApplicationController < ActionController::Base
     @dev = "Shashike J"
     @version = 0.85
     @update_date = "Sunday/May/5/2018"
-
-
     @welcome_quote = User.quotes
 
+    
+      @coins = Account.coinmarketcap_api_call
+    
   end
 
    helper_method :current_user

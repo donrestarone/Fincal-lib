@@ -21,11 +21,22 @@
 		<p>Special thanks to <a href="https://www.linkedin.com/in/gurjantsadhra/">Gurjant Singh Sadhra</a> for his guidance</p>
 	</div>
 
+	<div>
+		<ul>
+			<% @coins.each do |coin| %>
+				<li>
+					<%= coin['name'] %>
+					<%= coin['price'] %>
+					<%= coin['percent_change_24h'] %>
+					<%= coin['percent_change_7_days'] %>
+				</li>
+			<% end %>
+		</ul>
+	</div>
 
-		<div class="quotebox">
-			<p class="quote"><%= @welcome_quote %></p>
-		</div>
-
+	<div class="quotebox">
+		<p class="quote"><%= @welcome_quote %></p>
+	</div>
 
 	<div versionupdate>
 		<p>version: <%= @version %></p>
