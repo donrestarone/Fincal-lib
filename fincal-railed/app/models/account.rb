@@ -38,37 +38,15 @@ class Account < ApplicationRecord
 		return rounder(numerator)
 	end
 
-	def parse_api_response(raw_response)
-		return JSON.parse(raw_response)
-	end
 
-	def self.coinmarketcap_api_call
-		coinmarketcap_response = HTTParty.get('https://api.coinmarketcap.com/v2/ticker/')
-		parsed_response = JSON.parse(coinmarketcap_response.body)
-		data = parsed_response['data']
-		coins = []
-		data.each do |hash|
-			hash.each do |coin|
-				coin_hash = Hash.new
-					if coin['name']
-						coin_hash['name'] = coin['name'] 
-						coin_hash['price'] = coin['quotes']['USD']['price']
-						coin_hash['percent_change_24h'] = coin['quotes']['USD']['percent_change_24h']
-						coin_hash['percent_change_7_days'] = coin['quotes']['USD']['percent_change_7d']
-						coins.push coin_hash
-					end
-			end
-		end
-		return  p coins
-		# coins.each do |coin|
-		# 	coin['name']
-		# 	coin['price']
-		# 	coin['percent_change_24h']
-		# 	coin['percent_change_7_days']
-		# end
+	def self.compute_coinmarketcap_response(coins)
+		
+
 	end
 
 	private
+
+
 	def interest_factor(interest, compounding_frequency)
 		interest_factor = (1 + (interest.to_f / 100) / compounding_frequency)
 		return interest_factor

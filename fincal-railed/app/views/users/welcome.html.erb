@@ -21,14 +21,16 @@
 		<p>Special thanks to <a href="https://www.linkedin.com/in/gurjantsadhra/">Gurjant Singh Sadhra</a> for his guidance</p>
 	</div>
 
-	<div>
+	<div class="welcomeabout">
 		<ul>
 			<% @coins.each do |coin| %>
 				<li>
-					<%= coin['name'] %>
-					<%= coin['price'] %>
-					<%= coin['percent_change_24h'] %>
-					<%= coin['percent_change_7_days'] %>
+					<p>
+						name: <%= coin['name'] %>
+						price: <%= coin['price'] %>
+						% change in 24h<%= coin['percent_change_24h'] %>
+						% change in 7 days<%= coin['percent_change_7_days'] %>
+					</p>
 				</li>
 			<% end %>
 		</ul>

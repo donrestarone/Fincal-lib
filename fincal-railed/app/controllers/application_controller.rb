@@ -27,7 +27,7 @@ class ApplicationController < ActionController::Base
     @welcome_quote = User.quotes
 
     
-      @coins = Account.coinmarketcap_api_call
+      @coins = Crypto.coinmarketcap_api_call
     
   end
 

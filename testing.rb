@@ -86,7 +86,7 @@ def calculate_fv(interest, compounding_periods, compounding_frequency, present_v
 # 	periods = 2
 # calculate_pv_annuity(pmt, int, periods, 12 )
 
-p size_of_annuity_payment(7000, 9, 2, 16)
+size_of_annuity_payment(7000, 9, 2, 16)
 
 
 	#testing common factor method 
@@ -104,6 +104,12 @@ end
 def rounder(value)
 	rounded_value = value.round(2)
 	return rounded_value
+end
+
+
+
+def find_delta(price, percent_change)
+	price_in_past = price * (1 + percent_change)
 end
 
 
