@@ -27,6 +27,7 @@
 				<div>
 					<li>
 						<p>
+							<br>
 							<div>
 							<%= coin['name'] %>
 							</div>
@@ -35,7 +36,7 @@
 							percent change in 24h <%= coin['percent_change_24h'] %>
 							percent change in 7 days <%= coin['percent_change_7_days'] %>
 							<% if coin['equivalent_rate_24h'].to_i > 0 %>
-								<div>
+								<div class="cryptogreen">
 								earned an equivalent rate: <%= coin['equivalent_rate_24h'] %>% in 24 hours
 								</div>
 							<% elsif coin['equivalent_rate_24h'].to_i < 0 %>
@@ -45,14 +46,15 @@
 							<% end %>
 
 							<% if coin['equivalent_rate_7d'].to_i > 0 %>
-								<div>
-								earned an equivalent rate: <%= coin['equivalent_rate_7d'] %>% in 8 days
+								<div class="cryptogreen">
+								earned an equivalent rate: <%= coin['equivalent_rate_7d'] %>% in 7 days
 								</div>
 							<% elsif coin['equivalent_rate_7d'].to_i < 0 %>
 								<div>
 								discounted an equivalent rate: <%= coin['equivalent_rate_7d'] %>% in 7 days
 								</div>
 							<% end %>
+							<br>
 						</p>
 					</li>
 				</div>
