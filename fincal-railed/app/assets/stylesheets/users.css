@@ -69,4 +69,14 @@
 		margin: auto;
 	}
 
+	.cryptored {
+		background-color: red;
+		width: 45%;
+		margin: auto;
+	}
+
+	.coin p{
+		padding: 5px;
+	}
+
 

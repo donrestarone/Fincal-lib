@@ -24,40 +24,40 @@
 	<div class="cryptobox">
 		<ul>
 			<% @coins.each do |coin| %>
-				<div>
 					<li>
-						<p>
-							<br>
-							<div>
-							<%= coin['name'] %>
+						<ul>
+							<div class="coin">
+								<br>
+								<div>
+								<%= coin['name'] %>
+								</div>
+								price: $<%= coin['price'] %>
+
+								<p>percent change in 24h <%= coin['percent_change_24h'] %></p>
+								<p>percent change in 7 days <%= coin['percent_change_7_days'] %></p>
+								<% if coin['equivalent_rate_24h'].to_i > 0 %>
+									<div class="cryptogreen">
+									<p>earned an equivalent rate: <%= coin['equivalent_rate_24h'] %>% in 24 hours</p>
+									</div>
+								<% elsif coin['equivalent_rate_24h'].to_i < 0 %>
+									<div class="cryptored">
+									<p>discounted an equivalent rate: <%= coin['equivalent_rate_24h'] %>% in 24 hours</p>
+									</div>
+								<% end %>
+
+								<% if coin['equivalent_rate_7d'].to_i > 0 %>
+									<div class="cryptogreen">
+									<p>earned an equivalent rate: <%= coin['equivalent_rate_7d'] %>% in 7 days</p>
+									</div>
+								<% elsif coin['equivalent_rate_7d'].to_i < 0 %>
+									<div class="cryptored">
+									<p>discounted an equivalent rate: <%= coin['equivalent_rate_7d'] %>% in 7 days</p>
+									</div>
+								<% end %>
+								<br>
 							</div>
-							price: $<%= coin['price'] %>
-
-							percent change in 24h <%= coin['percent_change_24h'] %>
-							percent change in 7 days <%= coin['percent_change_7_days'] %>
-							<% if coin['equivalent_rate_24h'].to_i > 0 %>
-								<div class="cryptogreen">
-								earned an equivalent rate: <%= coin['equivalent_rate_24h'] %>% in 24 hours
-								</div>
-							<% elsif coin['equivalent_rate_24h'].to_i < 0 %>
-								<div>
-								discounted an equivalent rate: <%= coin['equivalent_rate_24h'] %>% in 24 hours
-								</div>
-							<% end %>
-
-							<% if coin['equivalent_rate_7d'].to_i > 0 %>
-								<div class="cryptogreen">
-								earned an equivalent rate: <%= coin['equivalent_rate_7d'] %>% in 7 days
-								</div>
-							<% elsif coin['equivalent_rate_7d'].to_i < 0 %>
-								<div>
-								discounted an equivalent rate: <%= coin['equivalent_rate_7d'] %>% in 7 days
-								</div>
-							<% end %>
-							<br>
-						</p>
+						</ul>
 					</li>
-				</div>
 			<% end %>
 		</ul>
 	</div>
