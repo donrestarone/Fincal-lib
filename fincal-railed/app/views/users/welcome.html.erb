@@ -21,22 +21,41 @@
 		<p>Special thanks to <a href="https://www.linkedin.com/in/gurjantsadhra/">Gurjant Singh Sadhra</a> for his guidance</p>
 	</div>
 
-	<div class="welcomeabout">
+	<div class="cryptobox">
 		<ul>
 			<% @coins.each do |coin| %>
-				<li>
-					<p>
-						<div>
-						<%= coin['name'] %>
-						</div>
-						price: <%= coin['price'] %>
+				<div>
+					<li>
+						<p>
+							<div>
+							<%= coin['name'] %>
+							</div>
+							price: $<%= coin['price'] %>
 
-						% change in 24h <%= coin['percent_change_24h'] %>
-						% change in 7 days <%= coin['percent_change_7_days'] %>
-						earned an equivalent rate: <%= coin['equivalent_rate'] %>% in 24 hours
-						
-					</p>
-				</li>
+							percent change in 24h <%= coin['percent_change_24h'] %>
+							percent change in 7 days <%= coin['percent_change_7_days'] %>
+							<% if coin['equivalent_rate_24h'].to_i > 0 %>
+								<div>
+								earned an equivalent rate: <%= coin['equivalent_rate_24h'] %>% in 24 hours
+								</div>
+							<% elsif coin['equivalent_rate_24h'].to_i < 0 %>
+								<div>
+								discounted an equivalent rate: <%= coin['equivalent_rate_24h'] %>% in 24 hours
+								</div>
+							<% end %>
+
+							<% if coin['equivalent_rate_7d'].to_i > 0 %>
+								<div>
+								earned an equivalent rate: <%= coin['equivalent_rate_7d'] %>% in 8 days
+								</div>
+							<% elsif coin['equivalent_rate_7d'].to_i < 0 %>
+								<div>
+								discounted an equivalent rate: <%= coin['equivalent_rate_7d'] %>% in 7 days
+								</div>
+							<% end %>
+						</p>
+					</li>
+				</div>
 			<% end %>
 		</ul>
 	</div>
