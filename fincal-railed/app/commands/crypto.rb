@@ -22,18 +22,6 @@ class Crypto
 		return coins
 	end
 
-	def self.find_coin(coin_name)
-		coins = coinmarketcap_api_call
-
-		coins.each do |coin|
-			if coin['name'] == coin_name.capitalize
-				return coin
-			else
-				return false
-			end
-		end
-	end
-
 	def self.calculate_interest_earned_7_days(present_value, delta)
 		if delta
 			interest = present_value / 100 * delta
@@ -46,15 +34,6 @@ class Crypto
 		rate = interest / (present_value * 1 / 365) * 100
 		return rounder(rate)
 	end
-
-	def pass_coin_info(coin)
-		#p coin["percent_change_24h"]
-		price = coin["price"]
-		a24h_delta = coin["percent_change_24h"]
-		a7d_delta = coin["percent_change_7_days"]
-		find_delta(price, a24h_delta)
-	end
-
 
 	private
 
