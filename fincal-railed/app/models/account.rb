@@ -3,8 +3,14 @@ class Account < ApplicationRecord
 	belongs_to :user
 	validates :name, length: {in: 4..40}, presence: true, uniqueness: true
 	validates :category, presence: true
-	validates :compounding_frequency, presence: true
+	validates :interest, presence: true
+	validates :compounding_periods, presence: true, numericality: {only_integer: true}
+	validates :compounding_frequency, presence: true, numericality: {only_integer: true}
+	validates :balance, presence: true
 	validate :compounding_frequency_must_be_mathematically_valid
+	validate :interest_must_be_mathematically_valid
+	validate :balance_must_be_mathematically_valid
+	
 	def calculate_fv
 		rounder(balance * interest_factor(interest, compounding_frequency) ** compounding_periods)
 	end
@@ -39,6 +45,18 @@ class Account < ApplicationRecord
 	end
 
 	private
+
+	def interest_must_be_mathematically_valid
+		unless interest.class == Float || interest.class == Integer
+			errors.add(:interest, 'rate can only be a whole or floating point number')
+		end
+	end
+
+	def balance_must_be_mathematically_valid
+		unless balance.class == Float || balance.class == Integer
+			errors.add(:balance, 'balance can only be a whole or floating point number')
+		end
+	end
 
 	def compounding_frequency_must_be_mathematically_valid
 		unless compounding_frequency == 1 || compounding_frequency == 2 || compounding_frequency == 4 || compounding_frequency == 12 || compounding_frequency == 365
