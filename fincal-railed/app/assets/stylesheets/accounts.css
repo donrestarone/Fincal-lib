@@ -112,6 +112,8 @@
 
 	.newaccountform {
 		font-size: 1.5em;
+		width: 70%;
+		margin: 0 auto;
 	}
 	.newaccountform p {
 		padding: 1%;
@@ -134,7 +136,26 @@
 		border-width: 4px;
 		padding: 1%;
   }
+  .form {
+  	text-align: center;
+  	padding: 10px;
+  }
 
+  .formfield {
+  	padding: 10px;
+  	margin: 0 auto;
+  	text-align: center;
+  }
+
+  .button {
+  	display: inline;
+  	padding: 10px;
+  }
+
+  .buttonwrapper {
+  	padding: 10px;
+  	text-align: center;
+  }
 
 @media only screen and (max-width: 1000px){
 

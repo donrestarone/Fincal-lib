@@ -2,17 +2,18 @@
 
 
 <%= form_for :session, url: sessions_path do |f| %>
-	<div class="field">
-		<%= f.label :email %> 
-		<%= f.text_field :email %> 
+	<div class="form">
+		<%= f.label :email, class: 'formfield' %> 
+		<%= f.text_field :email, class: 'formfield' %> 
 
 	</div>
 
-	<div class="field">
-		<%= f.label :password %> 
-		<%= f.password_field :password %> 
+	<div class="form">
+		<%= f.label :password, class: 'formfield' %> 
+		<%= f.password_field :password, class: 'formfield' %> 
 	</div>
 
-	<%= f.submit 'log in' %>
-
+	<div class="buttonwrapper">
+		<%= f.submit 'log in', class: 'button' %>
+	</div>
 <% end %>
