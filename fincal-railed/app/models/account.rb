@@ -5,8 +5,7 @@ class Account < ApplicationRecord
 	validates :category, presence: true
 
 	def calculate_fv
-		fv = balance * interest_factor(interest, compounding_frequency) ** compounding_periods
-		return rounder(fv)
+		rounder(balance * interest_factor(interest, compounding_frequency) ** compounding_periods)
 	end
 
 	def calculate_pv
@@ -39,6 +38,8 @@ class Account < ApplicationRecord
 	end
 
 	private
+
+
 	def interest_factor(interest, compounding_frequency)
 		interest_factor = (1 + (interest.to_f / 100) / compounding_frequency)
 		return interest_factor

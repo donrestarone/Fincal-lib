@@ -57,3 +57,26 @@
 	.errors li {
 		padding: 1%;
 	}
+
+	.cryptobox {
+		text-align: center;
+		font-size: 2em;
+	}
+
+	.cryptogreen {
+		background-color: green;
+		width: 45%;
+		margin: auto;
+	}
+
+	.cryptored {
+		background-color: red;
+		width: 45%;
+		margin: auto;
+	}
+
+	.coin p{
+		padding: 5px;
+	}
+
+
