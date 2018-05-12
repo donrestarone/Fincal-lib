@@ -17,27 +17,26 @@
 
 document.addEventListener('DOMContentLoaded', function(e){
   setInterval(function(){
-  	red = Math.ceil(Math.random() * 255);
-  	green = Math.ceil(Math.random() * 255);
-  	blue = Math.ceil(Math.random() * 255);
+  	var red = Math.ceil(Math.random() * 255);
+  	var green = Math.ceil(Math.random() * 255);
+  	var blue = Math.ceil(Math.random() * 255);
   	  var title = document.querySelector('h1 a');
   	  title.style.color = "rgb(" + red + "," + green + "," + blue + ")";
   }, 75)
 
   setInterval(function(){
 		var yourFincal = document.querySelector('.fincalwelcome')
-		var options = ['Your Personal Financial Planner', 'Your Personal Database', 'Your Personal Cashflow Manager']
-  		
-		// options.forEach(function(element) {
-		// 	yourFincal.innerText = element
-		// })
+		var options = ['Your Personal Financial Planner', 'Your Personal Accounts Database', 'Your Personal Cashflow Manager']
+  	var selection = Math.floor(Math.random() * options.length);
 
+    if(selection != NaN && selection <= options.length && selection != undefined){  
+      var lastSelection = options[selection]
+      yourFincal.innerText = options[selection];
+
+    }
+    //console.log(options[selection] + selection);
 		
-
-  	  	// for (var i = 0; i < 10000 ; i++) {
-  	  	// 	yourFincal.innerText = options[i]
-  	  	// }
-  }, 500)
+  }, 900)
 
 
 })
