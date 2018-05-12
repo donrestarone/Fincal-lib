@@ -3,7 +3,8 @@ class Account < ApplicationRecord
 	belongs_to :user
 	validates :name, length: {in: 4..40}, presence: true, uniqueness: true
 	validates :category, presence: true
-
+	validates :compounding_frequency, presence: true
+	validate :compounding_frequency_must_be_mathematically_valid
 	def calculate_fv
 		rounder(balance * interest_factor(interest, compounding_frequency) ** compounding_periods)
 	end
@@ -39,6 +40,11 @@ class Account < ApplicationRecord
 
 	private
 
+	def compounding_frequency_must_be_mathematically_valid
+		unless compounding_frequency == 1 || compounding_frequency == 2 || compounding_frequency == 4 || compounding_frequency == 12 || compounding_frequency == 365
+			errors.add(:compounding_frequency, 'interest can only be compounded annually (1), semiannually (2), quarterly (4), monthly (12) or daily (365)')
+		end
+	end
 
 	def interest_factor(interest, compounding_frequency)
 		interest_factor = (1 + (interest.to_f / 100) / compounding_frequency)
