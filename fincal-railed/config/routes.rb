@@ -23,6 +23,7 @@ Rails.application.routes.draw do
    get '/tvom' => 'accounts#tvom' #, as: :tvom_landing
    get '/tvom/real-time-tvom' => 'accounts#real_time_tvom', as: :real_time_tvom
    post '/tvom/real-time-tvom/real-time-tvom-results' => 'accounts#real_time_tvom_results', as: :real_time_tvom_results
+
 #   resources :accounts 
 	post '/tvom/results' => 'accounts#tvom_results', as: :tvom_choice
 
