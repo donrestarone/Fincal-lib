@@ -48,7 +48,6 @@ class AccountsController < ApplicationController
 	end
 
 	def update
-
 		@account.name = params[:account][:name]
 		@account.category = params[:account][:category]
 		@account.balance = params[:account][:balance]
@@ -117,7 +116,9 @@ class AccountsController < ApplicationController
 		@real_time_account.compounding_frequency = params[:compute_annuity_payment][:compounding_frequency]
 		@real_time_account.compounding_periods = params[:compute_annuity_payment][:compounding_periods]
 		@real_time_account.balance = params[:compute_annuity_payment][:fv]
+		
 		@computation = @real_time_account.calculate_size_of_annuity_payment
+		@earned_amount_interest = params[:compute_annuity_payment][:fv].to_f - (@computation * (params[:compute_annuity_payment][:compounding_periods].to_i))
 		end
 	end
 
