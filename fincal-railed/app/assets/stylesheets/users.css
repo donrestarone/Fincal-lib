@@ -42,6 +42,7 @@
 
 	.passconditions {
 		padding: 1%;
+		float: right;
 	}
 
 	.errors {

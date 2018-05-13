@@ -22,19 +22,19 @@
 <% end %>
 <!-- End Error Message -->
 
-<div class="newuserform">
+<div class="newaccountform">
   <%= form_for @user do |f| %>
-    <%= f.label :first_name %>: 
-    <%= f.text_field :first_name, placeholder: "letters only" %><br />
+    <%= f.label :first_name, class: 'formfield' %>: 
+    <%= f.text_field :first_name, placeholder: "letters only", class: 'formfield' %><br />
 
-    <%= f.label :last_name %>:
-    <%= f.text_field :last_name, placeholder: "letters only" %><br />
+    <%= f.label :last_name, class: 'formfield' %>:
+    <%= f.text_field :last_name, placeholder: "letters only", class: 'formfield' %><br />
 
-    <%= f.label :username %>:
-    <%= f.text_field :username %><br />
+    <%= f.label :username, class: 'formfield' %>:
+    <%= f.text_field :username, class: 'formfield' %><br />
 
-    <%= f.label :email %>:
-    <%= f.text_field :email %><br />
+    <%= f.label :email, class: 'formfield' %>:
+    <%= f.text_field :email, class: 'formfield' %><br />
       
       <div class="passconditions">
         <strong>password conditions</strong>
@@ -47,11 +47,11 @@
         </ul>
       </div>
 
-    <%= f.label :password %>:
-    <%= f.password_field :password %><br />
+    <%= f.label :password, class: 'formfield' %>:
+    <%= f.password_field :password, class: 'formfield' %><br />
 
-    <%= f.label :password_confirmation %>:
-    <%= f.password_field :password_confirmation %><br />
+    <%= f.label :password_confirmation, class: 'formfield' %>:
+    <%= f.password_field :password_confirmation, class: 'formfield' %><br />
 
 
     <%= f.submit %>
