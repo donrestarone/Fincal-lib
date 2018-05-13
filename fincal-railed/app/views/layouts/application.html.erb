@@ -10,38 +10,58 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <header class="actionheader">
-
-    <h1>
-      <%= link_to image_tag('/images/logo.png'), root_path %>
-    </h1>
-
-    <% if current_user %>
-
-      <div class="usergreeting">
-      <strong> Hello, <%= current_user.first_name.capitalize %></strong>
-      <div class="logout">
-      <%= link_to 'Log Out', sessions_path, method: :delete %>
-      </div>
-      </div>
-      <div class="topribbon">
-        	<%= link_to raw("&#x2655;Accounts&#x2655;"), users_accounts_path %>
-      	<%= link_to raw("&#x24;Time Value of Money&#x24;"), tvom_path%>
-        <%= link_to raw('&#x029C0;about&#x029C1;'), about_path %>
-      </div>
-
-    <% else %>
-      <div class="topribbon">
-        <%= link_to 'New Account', new_users_path %>
-        <%= link_to 'Login', new_sessions_path %>
-        <%= link_to 'about', about_path %>
-      </div>
-    <% end %>
-  </header>
   <body>
-    <%= yield %>
+    <aside>
+      <header class="actionheader">
+
+        <h1>
+          <%= link_to image_tag('/images/logo.png'), root_path %>
+        </h1>
+
+        <% if current_user %>
+
+          <div class="usergreeting">
+          <strong> Hello, <%= current_user.first_name.capitalize %></strong>
+          <div class="logout">
+          <%= link_to 'Log Out', sessions_path, method: :delete %>
+          </div>
+          </div>
+          <div class="topribbon">
+            	<%= link_to raw("&#x2655;Accounts&#x2655;"), users_accounts_path %>
+          	<%= link_to raw("&#x24;Time Value of Money&#x24;"), tvom_path%>
+            <%= link_to raw('&#x029C0;about&#x029C1;'), about_path %>
+          </div>
+
+        <% else %>
+          <div class="topribbon">
+            <%= link_to 'New Account', new_users_path %>
+            <%= link_to 'Login', new_sessions_path %>
+            <%= link_to 'about', about_path %>
+          </div>
+        <% end %>
+      </header>
+
+    </aside>
+
+      <footer>
+
+      	<div class="welcomeabout">
+      		<p>Caffeinated development by <a href="https://www.linkedin.com/in/shashike-jayatunge">Shashike J</a></p>
+      		<p>Special thanks to <a href="https://www.linkedin.com/in/gurjantsadhra/">Gurjant Singh Sadhra</a> for his guidance</p>
+      	</div>
+
+        <div versionupdate>
+      		<p>version: <%= @version %></p>
+      		<p>last update: <%= @update_date %></p>
+      	</div>
+
+        <p>New Updates Released Weekly</p>
+      </footer>
+
+    <section class="content">
+
+      <%= yield %>
+
+    </section>
   </body>
-  <footer>
-    <p>New Updates Released Weekly</p>
-  </footer>
 </html>
