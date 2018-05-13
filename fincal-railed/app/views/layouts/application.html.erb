@@ -9,31 +9,34 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <h1>
-    <%= link_to "MyFincal", root_path %>
-  </h1>
+
   <header class="actionheader">
-        <% if current_user %>
 
-          <div class="usergreeting">
-          <strong> Hello, <%= current_user.first_name.capitalize %></strong>
-          <div class="logout">
-          <%= link_to 'Log Out', sessions_path, method: :delete %>
-          </div>
-          </div>
-          <div class="topribbon">
-            	<%= link_to raw("&#x2655;Accounts&#x2655;"), users_accounts_path %>
-          	<%= link_to raw("&#x24;Time Value of Money&#x24;"), tvom_path%>
-            <%= link_to raw('&#x029C0;about&#x029C1;'), about_path %>
-          </div>
+    <h1>
+      <%= link_to image_tag('/images/logo.png'), root_path %>
+    </h1>
 
-        <% else %>
-          <div class="topribbon">
-            <%= link_to 'New Account', new_users_path %>
-            <%= link_to 'Login', new_sessions_path %>
-            <%= link_to 'about', about_path %>
-          </div>
-        <% end %>
+    <% if current_user %>
+
+      <div class="usergreeting">
+      <strong> Hello, <%= current_user.first_name.capitalize %></strong>
+      <div class="logout">
+      <%= link_to 'Log Out', sessions_path, method: :delete %>
+      </div>
+      </div>
+      <div class="topribbon">
+        	<%= link_to raw("&#x2655;Accounts&#x2655;"), users_accounts_path %>
+      	<%= link_to raw("&#x24;Time Value of Money&#x24;"), tvom_path%>
+        <%= link_to raw('&#x029C0;about&#x029C1;'), about_path %>
+      </div>
+
+    <% else %>
+      <div class="topribbon">
+        <%= link_to 'New Account', new_users_path %>
+        <%= link_to 'Login', new_sessions_path %>
+        <%= link_to 'about', about_path %>
+      </div>
+    <% end %>
   </header>
   <body>
     <%= yield %>
