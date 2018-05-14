@@ -14,37 +14,7 @@
  *= require_self
  */
 
-/*css reset*/
-
- html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-}
-
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-	display: block;
-}
-body {
-	line-height: 1;
-}
-ol, ul {
+/* ol, ul {
 	list-style: none;
 }
 blockquote, q {
@@ -58,17 +28,10 @@ q:before, q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
-}
-
+} */
 
 /*layout style*/
-/*@media screen and (min-width: 900px) {*/
-	html {
-		font-family: "Helvetica", sans-serif;
-		font-size: 10px;
-		background-color: #ACF0FF;
-	}
-
+@media screen and (min-width: 1024px) {
 
 	h1 {
 		color: #D439FF;
@@ -103,20 +66,6 @@ table {
 		margin: 0 auto;
 	}
 
-	.welcomeinformation {
-		text-align: left;
-		font-size: 1.8em;
-    padding: 1%;
-    margin: 0 auto;
-    width: 50%;
-    display: block;
-	}
-
-  .welcomeinformation p {
-    line-height: 200%;
-    text-indent: 15px;
-  }
-
 	.newandlogin {
 		float: right;
 		display: inline-block;
@@ -130,45 +79,6 @@ table {
 		text-align: center;
 		font-size: 1.8em;
 		padding: 2%;
-	}
-
-	.welcomeabout {
-		text-align: center;
-		padding: 2%;
-	}
-	.welcomeabout p {
-		padding: 2px;
-		font-size: 1.5em;
-	}
-
-	.quote {
-		font-size: 1.7em;
-		text-align: center;
-		padding: 1%;
-	}
-
-	.quotebox {
-		border-style: solid;
-		border-width: 2px;
-	}
-
-	.quote p {
-		padding: 2%;
-	}
-
-	.versionupdate p {
-		text-align: right;
-	}
-
-	footer {
-		text-align: center;
-		font-size: 1.2em;
-		padding: 2%;
-	}
-
-	a {
-		font-size: 1em;
-    text-decoration: none;
 	}
 
 	.aboutbutton {
@@ -190,14 +100,36 @@ table {
   a:hover {
     background-color: #D976FC;
   }
-/*}*/
-/*
-@media screen and (min-width: 480px) {
-	html {
-		font-family: "Helvetica", sans-serif;
-		font-size: 10px;
-		background-color: #ACF0FF;
-	}
 
+  .container {
+    display: grid;
+    grid-template-columns: 30% 70%;
 
-}*/
+    .side-bar {
+      display: grid;
+      grid-template-columns: auto;
+      grid-template-rows: 60% 40%;
+
+      footer {
+        position: fixed;
+        bottom: 0;
+        width: 50%;
+
+        .welcomeabout {
+          text-align: center;
+          padding: 2%;
+
+          p {
+            padding: 2px;
+            font-size: 1.5em;
+          }
+        }
+
+        .versionupdate p {
+          text-align: right;
+        }
+
+      }
+    }
+  }
+}
