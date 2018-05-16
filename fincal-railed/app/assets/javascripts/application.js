@@ -16,7 +16,33 @@
 
 
 document.addEventListener('DOMContentLoaded', function(e){
-   
+  var coinName = document.getElementsByClassName("coinName");
+  var coinPrice = document.getElementsByClassName("coinPrice");
+  var delta24h = document.getElementsByClassName("changeIn24h");
+  var delta7d = document.getElementsByClassName("changeIn7d");
+  var deltas = [];
+  var singleCoinBox = document.getElementsByClassName('singleCoin');
+  var changeBox = document.createElement('div');
+
+  function showActualChange(){
+    for(i = 0; i < coinName.length; i++){
+      var price = coinPrice[i].innerText;
+      var delta24 = delta24h[i].innerText;
+      var delta7 = delta7d[i].innerText;
+      var actualDelta24h = (price / 100) * delta24;
+      var actualDelta7d = (price / 100) * delta7;
+      
+      var _7DayHolder = document.createElement('p');
+      var _1dHolder = document.createElement('p');
+      _1dHolder.innerText = 'change of $'+ actualDelta24h + ' in 24 hours';
+      _7DayHolder.innerText = 'change of $' + actualDelta7d + ' in 7 days';
+      singleCoinBox[i].append(_1dHolder);
+      singleCoinBox[i].append(_7DayHolder);
+    }
+  }
+
+  showActualChange()
+
   setInterval(function(){
   	var red = Math.ceil(Math.random() * 255);
   	var green = Math.ceil(Math.random() * 255);
@@ -36,7 +62,5 @@ document.addEventListener('DOMContentLoaded', function(e){
 
     }
   }, 900)
-
-
 })
 

@@ -29,13 +29,14 @@
 							<ul>
 								<div class="coin">
 									<br>
-									<div>
-									<%= coin['name'] %>
+									<div class="singleCoin">
+									<p class="coinName"><%= coin['name'] %></p>
+									<p>price: $<span class="coinPrice"><%= coin['price'] %></span></p>
 									</div>
-									price: $<%= coin['price'] %>
+									
 
-									<p>percent change in 24h <%= coin['percent_change_24h'] %></p>
-									<p>percent change in 7 days <%= coin['percent_change_7_days'] %></p>
+									<p>percent change in 24h <span class="changeIn24h"><%= coin['percent_change_24h'] %></span></p>
+									<p>percent change in 7 days <span class="changeIn7d"><%= coin['percent_change_7_days'] %></span></p>
 									<% if coin['equivalent_rate_24h'].to_i > 0 %>
 										<div class="cryptogreen">
 										<p>earned an equivalent rate: <%= coin['equivalent_rate_24h'] %>% in 24 hours</p>
