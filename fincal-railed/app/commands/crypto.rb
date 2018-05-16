@@ -1,6 +1,7 @@
 class Crypto
 	
 	def self.coinmarketcap_api_call
+		begin
 		coinmarketcap_response = HTTParty.get('https://api.coinmarketcap.com/v2/ticker/')
 		parsed_response = JSON.parse(coinmarketcap_response.body)
 		data = parsed_response['data']
@@ -20,6 +21,9 @@ class Crypto
 			end
 		end
 		return coins
+		rescue SocketError => e
+			print e
+		end
 	end
 
 	def self.calculate_interest_earned_7_days(present_value, delta)
