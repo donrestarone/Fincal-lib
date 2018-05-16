@@ -16,11 +16,12 @@
 
 
 document.addEventListener('DOMContentLoaded', function(e){
+   var title = document.querySelector('h1 a');
   setInterval(function(){
   	var red = Math.ceil(Math.random() * 255);
   	var green = Math.ceil(Math.random() * 255);
   	var blue = Math.ceil(Math.random() * 255);
-  	  var title = document.querySelector('h1 a');
+  	 
   	  title.style.color = "rgb(" + red + "," + green + "," + blue + ")";
   }, 75)
 
@@ -34,8 +35,6 @@ document.addEventListener('DOMContentLoaded', function(e){
       yourFincal.innerText = options[selection];
 
     }
-    //console.log(options[selection] + selection);
-		
   }, 900)
 
 
