@@ -187,6 +187,12 @@ table {
 		padding: 1%;
 	}
 
+	/*JAVASCRIPT DEPENDANT*/
+	#loginbox{
+		display: none;
+	}
+	/**/
+
   a:hover {
     background-color: #D976FC;
   }
