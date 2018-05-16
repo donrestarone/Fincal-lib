@@ -41,8 +41,14 @@ class AccountTest < ActiveSupport::TestCase
     assert_equal(308.11, account.calculate_size_of_annuity_payment)
   end
 
+  test 'interest_must_be_mathematically_valid' do
+    interest_account = create_pv_account_compounding_monthly
+    assert_equal([], interest_account.errors.full_messages)
+  end
+
   def create_pv_account_compounding_monthly
     new_account = Account.new(name: 'IOU',
+                              user_id: 1,
                               category: 'deferred',
                               balance: 100000,
                               interest: 6,

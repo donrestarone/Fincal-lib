@@ -11,7 +11,7 @@
 // about supported directives.
 //
 //= require rails-ujs
-//= require turbolinks
+// require turbolinks
 //= require_tree .
 
 
@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function(e){
   var changeBox = document.createElement('div');
 
   function showActualChange(){
-    for(i = 0; i < coinName.length; i++){
+    for(var i = 0; i < coinName.length; i++){
       var price = coinPrice[i].innerText;
       var delta24 = delta24h[i].innerText;
       var delta7 = delta7d[i].innerText;
