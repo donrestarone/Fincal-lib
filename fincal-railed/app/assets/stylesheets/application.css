@@ -188,9 +188,14 @@ table {
 	}
 
 	/*JAVASCRIPT DEPENDANT*/
+	
 	#loginbox{
+
 		display: none;
+		margin: 0 auto;
+		width: 40%;
 	}
+
 	/**/
 
   a:hover {

@@ -31,13 +31,15 @@
           <div class="topribbon" id="topRibbon">
             <%= link_to 'New Account', new_users_path %>
             <%= link_to 'Login', new_sessions_path,id: 'loginButton' %>
+             <%= link_to 'about', about_path %>
+          </div>
             <div id="loginbox">
+
               <br>
               <%= form_for :session, url: sessions_path do |f| %>
                 <div class="form">
                   <%= f.label :email, class: 'formfield' %> 
                   <%= f.text_field :email, class: 'formfield' %> 
-
                 </div>
 
                 <div class="form">
@@ -50,8 +52,9 @@
                 </div>
               <% end %>
             </div>
-            <%= link_to 'about', about_path %>
-          </div>
+
+           
+          
         <% end %>
   </header>
   <body>

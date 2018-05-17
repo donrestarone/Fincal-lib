@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function(e){
   var deltas = [];
   var singleCoinBox = document.getElementsByClassName('singleCoin');
   var changeBox = document.createElement('div');
-
+  var accountButtons = document.querySelectorAll('div.account a');
   var logInButton = document.getElementById('loginButton');
 
   function showActualChange(){
@@ -53,17 +53,8 @@ document.addEventListener('DOMContentLoaded', function(e){
   	  title.style.color = "rgb(" + red + "," + green + "," + blue + ")";
   }, 75)
 
-  // setInterval(function(){
-		// var yourFincal = document.querySelector('.fincalwelcome')
-		// var options = ['Your Personal Financial Planner', 'Your Personal Accounts Database', 'Your Personal Cashflow Manager']
-  // 	var selection = Math.floor(Math.random() * options.length);
+ 
 
-  //   if(selection != NaN && selection <= options.length && selection != undefined){  
-  //     var lastSelection = options[selection]
-  //     yourFincal.innerText = options[selection];
-
-  //   }
-  // }, 900)
 
   logInButton.addEventListener('click', function(event){
     var topRibbon = document.getElementById('topRibbon');
@@ -74,9 +65,13 @@ document.addEventListener('DOMContentLoaded', function(e){
     console.log('login clicked');
     topRibbon.append(logInBox);
     event.preventDefault();
-
-
   })
+
+
+  
+  
+
+
 
 })
 
