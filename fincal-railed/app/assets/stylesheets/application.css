@@ -66,12 +66,14 @@ table {
 	html {
 		font-family: "Helvetica", sans-serif;
 		font-size: 10px;
-		background-color: #ACF0FF;
+		background: #D4E0FF;
+		
 	}
+	
 
 
 	h1 {
-		/*color: #D439FF;*/
+		color: #D439FF;
 		text-align: center;
 		font-size: 4em;
 		font-weight: bold;
@@ -79,7 +81,7 @@ table {
 	}
 
 	h2 {
-		color: #FF6945;
+		color: #635CCC;
 		text-align: center;
 		font-size: 2.5em;
 		padding: 2%;
