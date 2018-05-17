@@ -28,11 +28,33 @@
           </div>
 
         <% else %>
-          <div class="topribbon">
+          <div class="topribbon" id="topRibbon">
             <%= link_to 'New Account', new_users_path %>
-            <%= link_to 'Login', new_sessions_path %>
-            <%= link_to 'about', about_path %>
+            <%= link_to 'Login', new_sessions_path,id: 'loginButton' %>
+             <%= link_to 'about', about_path %>
           </div>
+            <div id="loginbox">
+
+              <br>
+              <%= form_for :session, url: sessions_path do |f| %>
+                <div class="form">
+                  <%= f.label :email, class: 'formfield' %> 
+                  <%= f.text_field :email, class: 'formfield' %> 
+                </div>
+
+                <div class="form">
+                  <%= f.label :password, class: 'formfield' %> 
+                  <%= f.password_field :password, class: 'formfield' %> 
+                </div>
+
+                <div class="buttonwrapper">
+                  <%= f.submit 'log in', class: 'button' %>
+                </div>
+              <% end %>
+            </div>
+
+           
+          
         <% end %>
   </header>
   <body>
