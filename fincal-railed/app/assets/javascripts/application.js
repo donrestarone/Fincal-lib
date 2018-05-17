@@ -53,7 +53,17 @@ document.addEventListener('DOMContentLoaded', function(e){
   	  title.style.color = "rgb(" + red + "," + green + "," + blue + ")";
   }, 75)
 
+ setInterval(function(){
+     var yourFincal = document.querySelector('.fincalwelcome')
+     var options = ['Your Personal Financial Planner', 'Your Personal Accounts Database', 'Your Personal Cashflow Manager'];
+     var selection = Math.floor(Math.random() * options.length);
+
+     if(selection != NaN && selection <= options.length && selection != undefined){  
+       var lastSelection = options[selection]
+       yourFincal.innerText = options[selection];
  
+      }
+  },950)
 
 
   logInButton.addEventListener('click', function(event){
@@ -66,12 +76,5 @@ document.addEventListener('DOMContentLoaded', function(e){
     topRibbon.append(logInBox);
     event.preventDefault();
   })
-
-
-  
-  
-
-
-
 })
 

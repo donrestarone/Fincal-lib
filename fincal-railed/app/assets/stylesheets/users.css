@@ -65,13 +65,13 @@
 	}
 
 	.cryptogreen {
-		background-color: green;
+		background-color: #65CC86;
 		width: 45%;
 		margin: auto;
 	}
 
 	.cryptored {
-		background-color: red;
+		background-color: #CC3D8D;
 		width: 45%;
 		margin: auto;
 	}
