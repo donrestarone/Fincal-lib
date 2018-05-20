@@ -16,8 +16,8 @@
 				<ul>
 					<li><p>Account name: <%= @account.name %></p></li>
 					<li><p>Category: <%= @account.category %></p></li>
-					<li><p>Balance: <%= @account.balance %></p></li>
-					<li><p>Interest rate: <%= @account.interest %></p></li>
+					<li><p>Balance: $<%= number_with_delimiter(@account.balance, :delimiter => ',') %></p></li>
+					<li><p>Interest rate: <%= @account.interest %>%</p></li>
 					<li><p>Compounding Frequency: <%= @account.compounding_frequency %></p></li>
 					<li><p>Compounding Periods: <%= @account.compounding_periods %></p></li>
 				</ul>
@@ -26,8 +26,8 @@
 
 				<ul>
 					<li><p><%= @calculation_performed %></p></li>
-					<li><p>$<%= @result %></p></li>
-					<li><p>Interest portion: $<%= @interest_portion %></p></li>
+					<li><p>$<%= number_with_delimiter(@result, :delimiter => ',') %></p></li>
+					<li><p>Interest portion: $<%= number_with_delimiter(@interest_portion, :delimiter => ',') %></p></li>
 				</ul>
 
 		
