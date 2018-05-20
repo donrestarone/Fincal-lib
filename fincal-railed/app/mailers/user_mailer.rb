@@ -4,7 +4,7 @@ class UserMailer < ApplicationMailer
 		@url = 'http://example.com/login'
 		@user = user
 		
-		mail(to: user.email, subject: 'Welcome to MyFincal')
+		mail(to: user.email, subject: "Welcome to MyFincal!" )
 		#params[:user][:email]
 	end
 
@@ -12,7 +12,7 @@ class UserMailer < ApplicationMailer
 		@user = user
 		@account = account
 		
-		mail(to: user.email, subject: "You created an account")
+		mail(to: user.email, subject: "You created a new #{@account.category} account")
 	end
 
 	def calculation_email(user, account, result, interest_portion, calculation_performed)
@@ -22,7 +22,7 @@ class UserMailer < ApplicationMailer
 		@interest_portion = interest_portion
 		@calculation_performed = calculation_performed
 
-		mail(to: user.email, subject: "you performed a calculation")
+		mail(to: user.email, subject: "you performed a calculation on your #{@account.name}")
 	end
 	
 end
