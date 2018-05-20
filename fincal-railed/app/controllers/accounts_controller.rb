@@ -99,6 +99,10 @@ class AccountsController < ApplicationController
 		@interest_time = @account.compounding_periods
 		@frequency = @account.compounding_frequency
 		@interest_portion = @result - account_balance
+		
+		if @interest_portion 
+			UserMailer.with(account: @account, user: current_user).calculation_email(current_user, @account, @result, @interest_portion, @calculation_performed).deliver_now
+		end
 	end
 
 	def real_time_tvom

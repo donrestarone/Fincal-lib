@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+	<body>
+		<h1>You performed a calculation on your <%= @account.name %> which is a <%= @account.category %> account, <%= @user.first_name %></h1>
+		<p>
+			<%= @calculation_performed %> is $<%= @result %> on your <%= @account.category %> where the interest portion was <%= @interest_portion %>
+		</p>
+		<br>
+
+			<h2>Breakdown</h2>
+			<strong>Current Account</strong>
+				<ul>
+					<li><p>Account name: <%= @account.name %></p></li>
+					<li><p>Category: <%= @account.category %></p></li>
+					<li><p>Balance: <%= @account.balance %></p></li>
+					<li><p>Interest rate: <%= @account.interest %></p></li>
+					<li><p>Compounding Frequency: <%= @account.compounding_frequency %></p></li>
+					<li><p>Compounding Periods: <%= @account.compounding_periods %></p></li>
+				</ul>
+
+			<strong>Calculation</strong>
+
+				<ul>
+					<li><p><%= @calculation_performed %></p></li>
+					<li><p>$<%= @result %></p></li>
+					<li><p>Interest portion: $<%= @interest_portion %></p></li>
+				</ul>
+
+		
+		<p>
+			Have a great day.
+		</p>
+	</body>
+</html>
