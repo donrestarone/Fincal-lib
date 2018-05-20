@@ -14,13 +14,18 @@ class UsersController < ApplicationController
   def create
   	@user = User.new(user_params)
   	# If user get saved to database
-  	if @user.save
-      session[:user_id] = @user.id
-  		redirect_to users_accounts_path
-  	else
-  	#If there is error while saving to database
-  		render :new
-  	end
+    respond_to do |format|
+    	if @user.save
+        session[:user_id] = @user.id
+
+        UserMailer.with(user: @user).welcome_email.deliver_now
+        format.html {redirect_to users_accounts_path}
+    		#redirect_to users_accounts_path
+    	else
+    	#If there is error while saving to database
+    		render :new
+    	end
+    end
 
   end
 
