@@ -23,11 +23,15 @@ class AccountsController < ApplicationController
 		@account.compounding_frequency = params[:account][:compounding_frequency]
 		@account.compounding_periods = params[:account][:compounding_periods]
 
-		if @account.save
-			redirect_to users_accounts_path
-		else
-			render :new
-		end
+		#respond_to do |format|
+			if @account.save
+				UserMailer.with(account: @account, user: current_user).account_email(current_user, @account).deliver_now
+				#format.html {redirect_to users_accounts_path}
+				redirect_to users_accounts_path
+			else
+				render :new
+			end
+		#end
 	end
 
 	def new
